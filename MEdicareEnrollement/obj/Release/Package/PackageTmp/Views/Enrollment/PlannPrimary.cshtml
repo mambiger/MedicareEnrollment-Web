@@ -1,0 +1,116 @@
+﻿
+@{
+    ViewBag.Title = "PlannPrimary";
+    Layout = "~/Views/Shared/_MedicareLayout.cshtml";
+}
+
+<div class="main-content">
+    <div class="container">
+        <div class="caption-heading">
+            <div class="caption-h">
+                Mandatory compensation disclosure statement - Read verbatim to the applicant:
+            </div>
+            <div class="caption-c">
+                "The person that is discussing plan options with you is either employed by or contracted with Humana.The person may be compensated based on your enrollment in a plan."
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12"><div class="time"><strong>Today's Date:</strong></div></div>
+    <div class="container">
+        <div class="form-head">
+            Section 4: Plan and Primary Care Physian Information
+        </div>
+        <div><label for="firstName" class="control-label">Plan:{{PLAName}}</label></div>
+        <div><label for="firstName" class="control-label">Plan year-2017</label></div>
+        <div class="container">
+
+            <div class="form-group required">
+                <label for="country" class="col-sm-8 control-label">Would you like to receive coverage information online?</label>
+                <div class="col-sm-4">
+                    <select id="country" class="form-control">
+                        <option>Select One</option>
+                        <option>Select One</option>
+                        <option>Select One</option>
+                        <option>Select One</option>
+                        <option>Select One</option>
+                        <option>Select One</option>
+                        <option>Select One</option>
+                        <option>Select One</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="container">
+            <div class="col-md-12 col-sm-12">
+                <div class="col-md-12 col-sm-12"><center>Please Provide permanent/malling address(both if it is different address)</center></div>
+                <br>
+                <br>
+                <br>
+                <form class="form-horizontal" role="form">
+
+                    <div class="form-group required">
+                        <label for="firstName" class="col-sm-4 control-label">*Name of Primary Care Physian</label>
+                        <div class="col-sm-4">
+                            <input type="text" id="firstName" placeholder="Name of Primary Care Physian" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group required">
+                        <label for="middleName" class="col-sm-4 control-label">*PCP Type</label>
+                        <div class="col-sm-4">
+                            <input type="text" id="middleName" placeholder="PCP Type" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group required">
+                        <label for="lastName" class="col-sm-4 control-label">*PCP#</label>
+                        <div class="col-sm-4">
+                            <input type="text" id="lastName" placeholder="PCP#" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group required">
+                        <label for="country" class="col-sm-4 control-label">*Established Patient of the Physician provided?</label>
+                        <div class="col-sm-4">
+                            <select id="country" class="form-control">
+                                <option>Select One</option>
+                                <option>Select One</option>
+                                <option>Select One</option>
+                                <option>Select One</option>
+                                <option>Select One</option>
+                                <option>Select One</option>
+                                <option>Select One</option>
+                                <option>Select One</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group required">
+                        <label for="medicareclaimNumber" class="col-sm-4 control-label">*Select Proposed Effective Date</label>
+                        <div class="col-sm-4">
+                            <input type="text" placeholder="Select Proposed Effective Date" id="medicareclaimNumber" class="form-control">
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-12 col-sm-12 col-lg-12">
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-default">Previous</button>
+                </div>
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-primary">Save</button>
+                </div>
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-default">Next</button>
+                </div>
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-default">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

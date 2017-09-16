@@ -1,0 +1,293 @@
+﻿
+@{
+    ViewBag.Title = "PrimaryCare";
+    Layout = "~/Views/Shared/_MedicareLayout.cshtml";
+}
+<div class="main-content" data-ng-app="MedicareEnrollmentModule" ng-controller="PhysicianController">
+    <div class="container">
+        <div class="form-head">
+            Section 5: Chronic Questions
+        </div>
+        <div><label for="firstName" class="control-label">Plan:{{PLAName}}</label></div>
+        <div><label for="firstName" class="control-label">Plan year-2017</label></div>
+        <br>
+        <div class="container">
+
+            <div class="col-sm-4 col-md-4">
+
+                <div class="address-box-1">
+                    <h4>Please list your primary care physician</h4>
+
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group ">
+                            <label for="firstName" class="col-sm-6 control-label">Primary care Physician Name:</label>
+                            <div class="col-sm-6">
+                                <input type="text" ng-model="PhysicianName" id="firstName" placeholder="" class="form-control">
+                            </div>
+
+                        </div>
+                        <div class="form-group ">
+                            <label for="dateofbirth" class="col-sm-6 control-label">Telephone Number:</label>
+                            <div class="col-sm-2">
+                                <input type="text" ng-model="Phone" id="lastName" placeholder="" class="form-control">
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="text" id="lastName" placeholder="" class="form-control">
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="text" id="lastName" placeholder="" class="form-control">
+                            </div>
+
+                        </div>
+                        @*<div class="form-group">
+                            <label class="col-sm-6 control-label"></label>
+                            <div class="col-sm-6">
+                                <label class="control-label">555-555-5555</label>
+                            </div>
+                        </div>*@
+                        <div class="form-group ">
+                            <label for="dateofbirth" class="col-sm-6 control-label">Address:</label>
+                            <div class="col-sm-6">
+                                <input type="text" ng-model="Address" id="lastName" placeholder="" class="form-control">
+                            </div>
+
+                        </div>
+                        <div class="form-group ">
+                            <label for="dateofbirth" class="col-sm-6 control-label">City:</label>
+                            <div class="col-sm-6">
+                                <input type="text" ng-model="City" id="lastName" placeholder="" class="form-control">
+                            </div>
+
+                        </div>
+                        <div class="form-group ">
+                            <label for="dateofbirth" class="col-sm-6 control-label">State:</label>
+                            <div class="col-sm-6">
+                                <select id="country" ng-model="State" class="form-control">
+                                    <option>Alabama</option>
+                                    <option>Select One</option>
+                                    <option>Select One</option>
+                                    <option>Select One</option>
+                                    <option>Select One</option>
+                                    <option>Select One</option>
+                                    <option>Select One</option>
+                                    <option>Select One</option>
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="form-group ">
+                            <label for="dateofbirth" class="col-sm-6 control-label">Zip:</label>
+                            <div class="col-sm-6">
+                                <input type="text" id="lastName" ng-model="ZipCode" placeholder="76137" class="form-control">
+                            </div>
+
+                        </div>
+
+                        <!-- /.form-group -->
+
+                    </form>
+
+                </div>
+            </div>
+            <h4>Please list your any specialist care physician you see regurarly</h4> <br>
+            <div class="col-sm-4 col-md-4">
+
+                <div class="address-box-1">
+
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group ">
+                            <label for="firstName" class="col-sm-6 control-label">Specialist Physician Name:</label>
+                            <div class="col-sm-6">
+                                <input type="text" id="firstName" ng-model="SPPhysicianName1" placeholder="" class="form-control">
+                            </div>
+
+                        </div>
+                        <div class="form-group ">
+                            <label for="dateofbirth" class="col-sm-6 control-label">Telephone Number:</label>
+                            <div class="col-sm-2">
+                                <input type="text" id="lastName" ng-model="SPPhone1" placeholder="" class="form-control">
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="text" id="lastName" placeholder="" class="form-control">
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="text" id="lastName" placeholder="" class="form-control">
+                            </div>
+
+                        </div>
+                        @*<div class="form-group">
+                            <label class="col-sm-6 control-label"></label>
+                            <div class="col-sm-6">
+                                <label class="control-label">555-555-5555</label>
+                            </div>
+                        </div>*@
+                        <div class="form-group ">
+                            <label for="dateofbirth" class="col-sm-6 control-label">Address:</label>
+                            <div class="col-sm-6">
+                                <input type="text" id="lastName" ng-model="SPAddress1" placeholder="" class="form-control">
+                            </div>
+
+                        </div>
+                        <div class="form-group ">
+                            <label for="dateofbirth" class="col-sm-6 control-label">City:</label>
+                            <div class="col-sm-6">
+                                <input type="text" id="lastName" ng-model="SPCity1" placeholder="" class="form-control">
+                            </div>
+
+                        </div>
+                        <div class="form-group ">
+                            <label for="dateofbirth" class="col-sm-6 control-label">State:</label>
+                            <div class="col-sm-6">
+                                <select id="country" ng-model="SPState1" class="form-control">
+                                    <option>Alabama</option>
+                                    <option>Select One</option>
+                                    <option>Select One</option>
+                                    <option>Select One</option>
+                                    <option>Select One</option>
+                                    <option>Select One</option>
+                                    <option>Select One</option>
+                                    <option>Select One</option>
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="form-group ">
+                            <label for="dateofbirth" class="col-sm-6 control-label">Zip:</label>
+                            <div class="col-sm-6">
+                                <input type="text" id="lastName" ng-model="SPZipCode1" placeholder="76137" class="form-control">
+                            </div>
+
+                        </div>
+
+                        <!-- /.form-group -->
+
+                    </form>
+                </div>
+            </div>
+            <div class="col-sm-4 col-md-4">
+                <div class="address-box-1">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group ">
+                            <label for="firstName" class="col-sm-6 control-label">Specialist Physician Name:</label>
+                            <div class="col-sm-6">
+                                <input type="text" id="firstName" ng-model="SPPhysicianName2" placeholder="" class="form-control">
+                            </div>
+
+                        </div>
+                        <div class="form-group ">
+                            <label for="dateofbirth" class="col-sm-6 control-label">Telephone Number:</label>
+                            <div class="col-sm-2">
+                                <input type="text" id="lastName" ng-model="SPPhone2" placeholder="" class="form-control">
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="text" id="lastName" placeholder="" class="form-control">
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="text" id="lastName" placeholder="" class="form-control">
+                            </div>
+
+                        </div>
+                        @*<div class="form-group">
+                            <label class="col-sm-6 control-label"></label>
+                            <div class="col-sm-6">
+                            </div>
+                        </div>*@
+                        <div class="form-group ">
+                            <label for="dateofbirth" class="col-sm-6 control-label">Address:</label>
+                            <div class="col-sm-6">
+                                <input type="text" id="lastName" ng-model="SPAddress2" placeholder="" class="form-control">
+                            </div>
+
+                        </div>
+                        <div class="form-group ">
+                            <label for="dateofbirth" class="col-sm-6 control-label">City:</label>
+                            <div class="col-sm-6">
+                                <input type="text" id="lastName" ng-model="SPCity2" placeholder="" class="form-control">
+                            </div>
+
+                        </div>
+                        <div class="form-group ">
+                            <label for="dateofbirth" class="col-sm-6 control-label">State:</label>
+                            <div class="col-sm-6">
+                                <select id="country" ng-model="SPState2" class="form-control">
+                                    <option>Alabama</option>
+                                    <option>Select One</option>
+                                    <option>Select One</option>
+                                    <option>Select One</option>
+                                    <option>Select One</option>
+                                    <option>Select One</option>
+                                    <option>Select One</option>
+                                    <option>Select One</option>
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="form-group ">
+                            <label for="dateofbirth" class="col-sm-6 control-label">Zip:</label>
+                            <div class="col-sm-6">
+                                <input type="text" id="lastName" ng-model="SPZipCode2" placeholder="76137" class="form-control">
+                            </div>
+
+                        </div>
+
+                        <!-- /.form-group -->
+
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="checkbox col-sm-2">
+                <label>
+                    <input type="checkbox" ng-model="SEP" name="">Select SEP
+                </label>
+            </div>
+            <div class="col-sm-10">
+                <select ng-model="SEPOption" class="form-control">
+                    <option>CHR-One-time SEP for Iitial Enrollment into Chronic Care SNP plan OR individuals who are found after enrollment not to have the qualifying condition necessary to enroll in a chronic Care SNP will have an SEP to enroll in a different MA-PO plan with accompanying Part D</option>
+                    <option>CRE-SEP for individuals who are not adequately infromaed a loss of creditable coverage or never had creditable coverage</option>
+                    <option>ERR-SEP for individuals whose entrollment in a Part D plan is erroneous due to an action, inaction or error by a federal employee.Note:This SEP must be approved by CMS and the memeber will be required to submit proof of approval </option>
+                    <option>ESR-SEP for individuals with ESRD whose entitiement determination was made retoractively</option>
+                    <option>LEC-I am either losing coverage. I had form an employer or union or leaving employer or union coverage.</option>
+                    <option>LIS- I recevie extra help paying for Medicare precription drug coverage</option>
+                    <option>LLS-I am no longer eligible for extra help paying for my Medicare prescrition drugs</option>
+                    <option>LOC-SEP for individuals who involuntarily lose creditable prescrition durg coverage(as good as Medicare's)</option>
+                    <option>MDE-I have both Medicare and Medicaid or my state helps pay for my Medicare premiums or lost this eligibility within the last two months </option>
+                    <option>MOV-I recently moved outside of the service ares for my current planor, I recently returned to the United States after living permanently moved and this plan is a new option for me.</option>
+                    <option>OTH-None of the above statements apply to me;however, I feel I have a special circumstance which woukd allow me an exception to enroll.</option>
+                    <option>PAC-I recently left a PACE,[Program of All-inculsive Care for the Elderly] program.</option>
+                    <option>RET-SEP for individuals whose Medicare entitiement determination was made retroactively</option>
+                    <option>SAN-SEP for individuals who disenroll in connection with a CMS sanction.Note: This SEP must be approved by CMS and the member will be required to submit proof of approval.</option>
+                    <option>SNP-SEP for individuals who lose Special Needs Status</option>
+                    <option>SPA-I currently belong to a pharmacy assistance program provided by my state also known as a Qualified State Pharmaceutical Assistance Plan(SPAP).Or lost SPAP eligiblity</option>
+                    <option>VIO-SEP for Contract Violations Note:This SEP must be approved by CMS and the member will be required to sumbit proof of approval</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            @*<div class="col-md-12 col-sm-12 col-lg-12">
+                <div class="col-md-3">
+                    <a href="~/Enrollment/ChronicQues" class="btn btn-default">Previous</a>
+                </div>
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-primary">Save</button>
+                </div>
+                <div class="col-md-3">
+                    <a href="~/Enrollment/GrpCovgeQues" class="btn btn-default">Next</a>
+                </div>
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-default">Submit</button>
+                </div>
+            </div>*@
+            <div class="col-md-8" style="text-align: center;">
+                <a href="~/Enrollment/ChronicQues" class="btn btn-default">Previous</a>
+                <a href="~/Enrollment/Chronicnew" class="btn btn-default">Next</a>
+                <button type="button" class="btn btn-primary" ng-click="InsertPhysicianInfo()">Save</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="~/Scripts/Scripts/CommonModule.js"></script>
+<script src="~/Scripts/Scripts/PhysicianInfo/PhysicianController.js"></script>
+<script src="~/Scripts/Scripts/PhysicianInfo/PhysicianService.js"></script>

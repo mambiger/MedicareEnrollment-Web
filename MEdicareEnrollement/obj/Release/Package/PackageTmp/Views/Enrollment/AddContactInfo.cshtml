@@ -1,0 +1,244 @@
+﻿
+@{
+    ViewBag.Title = "AddContactInfo";
+    Layout = "~/Views/Shared/_MedicareLayout.cshtml";
+}
+
+<div class="main-content" data-ng-app="MedicareEnrollmentModule" ng-controller="ContactInfoController">
+    <div class="container">
+        <div class="form-head">
+            Section 4: PCP Selection
+        </div>
+        @*<div class="col-sm-12">
+                <label class="col-sm-2 control-label" style="text-align:left">Plan</label>
+                <label class="col-sm-10 control-label" style="text-align:left">{{PLAName}}</label>
+            </div>
+            <label class="col-sm-12control-label">Plan Year</label>
+            <label class="col-sm-12control-label">2017</label>*@
+
+    </div>
+    <div><label for="firstName" class="control-label">Plan:{{PLAName}}</label></div>
+    <div><label for="firstName" class="control-label">Plan year-2017</label></div>
+
+    <div class="container">
+
+        <div class="container">
+
+            <div class="col-sm-6 col-md-6">
+                <div class="address-box-1">
+                    <h4><b>Materials On-line</b></h4><br>
+                    <p>I choose to receive the following documents on-line:You have the option to receive most of your plan and coverage materials securely on-line instead of in paper format. This is a faster easier method providing you the convenience to access your materials whenever you need them, while also significantly reducing the amount of mail you would receive from Humana. If you answer 'Yes' to this option, you will receive an initial email with a link that will take you to the MyHumana registration page. Once you register, your digital welcome experience begins.</p>
+                    - Verification Letter  <br>
+                    - Member Guide <br>
+                    - Plan Coverage Package<br>
+                    - Evidence of Coverage <br>
+                    - Summary of Benefits<br>
+                    - Plan Rating<br>
+                    - Value-added services<br>
+                    - Provider Directory <br>
+                    - Drug Guide <br>
+                    - Health Risk Assessment  <br>
+                    - Health and Wellness Handbook <br>
+                    - Annual Notice of Change with Evidence of Coverage <br>
+                    - Smart Summary   <br>
+                    <div class="col-md-12 col-sm-12">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group required">
+                                <label for="firstName" class="col-sm-8 control-label" style="text-align:left !important;padding-left:2px !important">Would you like to receive these communications online?</label>
+                                <div class="col-sm-4">
+                                    @*   <select id="country" class="form-control">
+                                            <option>Select</option>
+                                            <option>Select One</option>
+                                            <option>Select One</option>
+                                            <option>Select One</option>
+                                            <option>Select One</option>
+                                            <option>Select One</option>
+                                            <option>Select One</option>
+                                            <option>Select One</option>
+                                        </select>*@
+                                    <div class="radio-toolbar" ng-init="OnlineCommunication=0">
+                                        <input type="radio" ng-model="OnlineCommunication" ng-value="1" id="comm1" name="comm" value="1">
+                                        <label for="comm1">Yes</label>
+
+                                        <input type="radio" ng-model="OnlineCommunication" ng-value="0" id="comm2" name="comm" value="0">
+                                        <label for="comm2">No</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6">
+                <div class="address-box-1">
+                    <h4><b>PCP Selection Information</b></h4> <span>
+                        <br>
+                        <span>Note to Agent: Plan selected requires identification of a Primary Care Physician (PCP) in order to process enrollment. Use the Physician Finder button below to locate the appropriate PCP.</span>
+                        <center>
+                            <form id="sec4_form4" class="form-horizontal" role="form">
+                                <div class="form-group required">
+                                    <label for="firstName" class="col-sm-8 control-label">Do you wish to identify a Primary Care Physician (PCP)</label>
+                                    <div class="col-sm-3" style="">
+                                        @*<div class="btn-group" >
+                                                <label class="btn btn-default">
+                                                    <input type="radio" name="year" value="Y">Yes
+                                                </label>
+                                                <label class="btn btn-default active">
+                                                    <input type="radio" name="year" value="N" checked="">No
+                                                </label>
+                                            </div>*@
+                                        <div class="radio-toolbar" ng-init="PCP=0">
+                                            <input type="radio" ng-model="PCP" ng-value="1" id="YouOrSpouseWork1" name="YouOrSpouseWork" value="1">
+                                            <label for="YouOrSpouseWork1">Yes</label>
+
+                                            <input type="radio" ng-model="PCP" ng-value="0" id="YouOrSpouseWork2" name="YouOrSpouseWork" value="0">
+                                            <label for="YouOrSpouseWork2">No</label>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="form-group required">
+                                    <label for="middleName" class="col-sm-8 control-label ">PCP Type?</label>
+                                    <div class="col-sm-4">
+                                        <select id="country" name="pcptype" ng-model="PCPType" ng-init="PCPType=0" class="form-control">
+                                            <option value="0">Select</option>
+                                            <option value="1">Located in Physician Finder</option>
+                                            <option value="2">Non Network PCP</option>
+                                            <option value="3">Non PCP Specialist</option>
+                                        </select>
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group required">
+                                    <label for="dateofbirth" class="col-sm-8 control-label ">Name of Primary Care Physician:</label>
+                                    <div class="col-sm-4">
+                                        <input name="physicianname" type="text" id="lastName" ng-model="PrimaryCare" placeholder="" class="form-control">
+                                    </div>
+
+                                </div>
+                                <div class="form-group required">
+                                    <label for="dateofbirth" class="col-sm-8 control-label ">PCP#:</label>
+                                    <div class="col-sm-4">
+                                        <input name="pcpno" type="text" id="lastName" ng-model="PCPNo" placeholder="" class="form-control">
+                                    </div>
+
+                                </div>
+                                <div class="form-group required">
+                                    <label for="middleName" class="col-sm-8 control-label ">Are you an Established Patient of the Physician you selected?:</label>
+                                    <div class="col-sm-4">
+                                        @*  <select id="country" class="form-control">
+                                                <option>Select</option>
+                                                <option>Select One</option>
+                                                <option>Select One</option>
+                                                <option>Select One</option>
+                                                <option>Select One</option>
+                                                <option>Select One</option>
+                                                <option>Select One</option>
+                                                <option>Select One</option>
+                                            </select> *@
+                                        <div class="radio-toolbar" ng-init="PatientPhysician=0">
+                                            <input type="radio" ng-model="PatientPhysician" ng-value="1" id="physian1" name="physian" value="1">
+                                            <label for="physian1">Yes</label>
+
+                                            <input type="radio" ng-model="PatientPhysician" ng-value="0" id="physian2" name="physian" value="0">
+                                            <label for="physian2">No</label>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <!-- /.form-group -->
+
+                            </form>
+                        </center>
+                        <center>
+                            <a type="button" class="btn btn-info" href="https://www.humana.com/finder/medical?pageId=3da165a1dd9340e59557a27cfe32d2aa">
+                                Physician Finder <span class="glyphicon glyphicon-chevron-right"></span>
+                            </a>
+                        </center>
+                </div>
+            </div>
+
+        </div>
+        <br>
+        <div class="col-md-12">
+            <span><i style="margin-left: -10px;">Note to Agent: If asked, the member can elect to receive certain documents by</i></span>
+            <span><i>changing their preferences online at MyHumana or by calling Customer Service.</i></span>
+        </div>
+        <div style="clear: both;"></div>
+        <br />
+        <br />
+        <div class="form-group">
+            <div class="col-md-12 col-sm-12 col-lg-12 submiTbtn">
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-8" style="text-align: center;">
+                    <a href="~/Enrollment/ContactInfo" class="btn btn-default">Previous</a>
+                    <button form="sec4_form4" ng-click="InsPCP('Next')" class="btn btn-default">Next</button>
+                    <button type="button" class="btn btn-primary" ng-click="InsPCP('Save')">Save</button>
+                </div>
+                <div class="col-md-2">
+                </div>
+            </div>
+        </div>
+        <div style="clear: both;"></div>
+    </div>
+</div>
+<script src="~/Scripts/Scripts/ContactInfo/ContactInfoController.js"></script>
+<script src="~/Scripts/Scripts/ContactInfo/ContactInfoService.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#sec4_form4').bootstrapValidator({
+            // To use feedback icons, ensure that you use Bootstrap v3.1.0 or later
+            feedbackIcons: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            fields: {
+                pcptype: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Select PCP Type'
+                        }
+                    }
+                },
+                physicianname: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Please enter Name of Primary Care Physician'
+                        }
+                    }
+                },
+                pcpno: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Please enter PCP#'
+                        }
+                    }
+                },
+            }
+        })
+            .on('success.form.bv', function (e) {
+                $('#success_message').slideDown({ opacity: "show" }, "slow") // Do something ...
+                $('#contact_form').data('bootstrapValidator').resetForm();
+
+                // Prevent form submission
+                e.preventDefault();
+
+                // Get the form instance
+                var $form = $(e.target);
+
+                // Get the BootstrapValidator instance
+                var bv = $form.data('bootstrapValidator');
+
+                // Use Ajax to submit form data
+                $.post($form.attr('action'), $form.serialize(), function (result) {
+                    console.log(result);
+                }, 'json');
+            });
+    });
+</script>

@@ -1,0 +1,612 @@
+﻿
+@{
+    ViewBag.Title = "LTCQuestions";
+    Layout = "~/Views/Shared/_MedicareLayout.cshtml";
+}
+
+
+<div class="main-content" data-ng-app="MedicareEnrollmentModule" ng-controller="LTCQController">
+    <div class="container">
+        <div class="form-head">
+            Section 7:Medicaid/LTC Questions
+        </div>
+        <div><label for="firstName" class="control-label">Plan:{{PLAName}}</label></div>
+        <div><label for="firstName" class="control-label">Plan year-2017</label></div>
+        <div class="container">
+            <p>Please enter Yes or No to all the question(s).</p>
+            <form id="sec7_fomr44">
+                <div class="form-group ">
+                    <label for="country" class="col-sm-4 control-label Questions"><span style="color:red;">*</span>Are you currently on Medicaid?</label>
+                    <div class="col-sm-8">
+                        <div class="">
+                            @*<label class="">
+                                    <input type="radio" ng-model="CurrentlyOnMedicalID" name="year2" value="true">Yes
+                                </label>
+                                <label class="">
+                                    <input type="radio" ng-model="CurrentlyOnMedicalID" name="year2" value="false" checked="">No
+                                </label>*@
+                            <div class="radio-toolbar" ng-init="CurrentlyOnMedicalID=0">
+                                <input class="val_radio_yes2" type="radio" ng-model="CurrentlyOnMedicalID" ng-value="1" id="radioEnrollPlanOptional1" name="Optional" value="true">
+                                <label for="radioEnrollPlanOptional1">Yes</label>
+
+                                <input class="val_radio_no2" type="radio" ng-model="CurrentlyOnMedicalID" ng-value="0" id="radioEnrollPlanOptional2" name="Optional" value="false">
+                                <label for="radioEnrollPlanOptional2">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <br>
+                <br>
+
+
+                <div id="form_val3" class="form-group ">
+
+                    <label for="lastName" class="col-sm-4 control-label" style="text-align: left !important">Medicaid Policy Number</label>
+                    <div class="col-sm-4">
+                        <input name="policynoom" type="text" id="MDPolicyNo" ng-model="MedicalIDPolicyNo" placeholder="Medicaid Policy Number" class="form-control">
+                    </div>
+                    <div class="col-sm-4"></div>
+                </div>
+                <br>
+                <br>
+                <div class="col-sm-12 col-md-12">
+
+                    <div id="form_val1" class="col-md-6 col-sm-6">
+                        <div class="form-group ">
+                            <label for="country" class="col-sm-8 control-label Questions"><span style="color:red;">*</span> Are you currently a resident in a nursing home or long-term care facility?</label>
+                            <div class="col-sm-4">
+                                @*<div class="">
+                                        <label class="">
+                                            <input type="radio" ng-model="CurrentlyResInNHorLT" name="year" value="true">Yes
+                                        </label>
+                                        <label class="">
+                                            <input type="radio" ng-model="CurrentlyResInNHorLT" name="year" value="false" checked="">No
+                                        </label>
+                                    </div>*@
+                                <div class="radio-toolbar" ng-init="CurrentlyResInNHorLT=0">
+                                    <input class="val_radio_yes" type="radio" ng-model="CurrentlyResInNHorLT" ng-value="1" id="radioEnrollPlanOptional3" name="radioEnrollPlanOptional" value="true">
+                                    <label for="radioEnrollPlanOptional3">Yes</label>
+
+                                    <input class="val_radio_no" type="radio" ng-model="CurrentlyResInNHorLT" ng-value="0" id="radioEnrollPlanOptional4" name="radioEnrollPlanOptional" value="false">
+                                    <label for="radioEnrollPlanOptional4">No</label>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="form-group ">
+                            <label for="lastName" class="col-sm-6 control-label">Date Entered</label>
+
+                            <div class="col-sm-6 form-group phone-number">
+                                <input name="date1" type="number" ng-model="DateEnteredMonth" onkeypress="return isNumberKey(event);" id="LTCMM" placeholder="MM" class="form-control first">
+
+                                <input name="date2" type="number" id="LTCDD" placeholder="DD" onkeypress="return isNumberKey(event);" ng-model="Date" class="form-control second">
+
+                                <input name="date3" type="number" ng-model="DateEnteredYear" onkeypress="return isNumberKey(event);" id="LTCYYYY" placeholder="YYYY" class="form-control third">
+                                <div style="clear: both;"></div>
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="form-group ">
+                            <label for="lastName" class="col-sm-6 control-label">Institution Name</label>
+                            <div class="col-sm-6">
+                                <input name="instiname" type="text" id="InstitutionName1" ng-model="InstitutionName" placeholder="Institution Name" class="form-control">
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="form-group ">
+                            <label for="lastName" class="col-sm-6 control-label">Institution Address1</label>
+                            <div class="col-sm-6">
+                                <input name="instiaddress" type="text" id="InstitutionAddress1" ng-model="InstitutionAdd1" placeholder="Institution Address1" class="form-control">
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="form-group ">
+                            <label for="lastName" class="col-sm-6 control-label">Institution Address2</label>
+                            <div class="col-sm-6">
+                                <input type="text" id="InstitutionAddress2" ng-model="InstitutionAdd2" placeholder="Institution Address2" class="form-control">
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="form-group ">
+                            <label for="lastName" class="col-sm-6 control-label">Institution City</label>
+                            <div class="col-sm-6">
+                                <input name="insticity" type="text" id="InstitutionCity1" ng-model="InstitutionCity" placeholder="Institution City" class="form-control">
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="form-group ">
+                            <label for="lastName" class="col-sm-6 control-label">Institution State</label>
+                            <div class="col-sm-6">
+                                @*<select ng-model="InstitutionState" class="form-control">
+                                        <option>Select</option>
+                                        <option>Select one</option>
+                                    </select>*@
+                                <select name="instistate" id="ddlUser" ng-int="StateName = 'Select'" ng-model="InstitutionState" ng-options="itemAccoun.StateAbbreviation as itemAccoun.StateName for itemAccoun in getStateData" ng-change="StateSelect()" class="textbox">
+                                    <option value="">Select State</option>
+                                </select>
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="form-group ">
+                            <label for="lastName" class="col-sm-6 control-label">Institution Zip</label>
+                            <div class="col-sm-6">
+                                <input name="instizip" type="text" ng-model="InstitutionZIP" id="Zip1" placeholder="Institution Zip" class="form-control">
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="form-group ">
+                            <label for="dateofbirth" class="col-sm-6 control-label">Institution Phone</label>
+                            <div class="col-sm-2">
+                                <input type="number" ng-model="InstitutionPhone1" id="PH1" onkeypress="return isNumberKey(event);" placeholder="" class="form-control" maxlength="3">
+                                <span style="position: relative;left: 70px;bottom: 25px;"> - </span>
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="number" ng-model="InstitutionPhone2" id="PH2" onkeypress="return isNumberKey(event);" placeholder="" class="form-control" maxlength="3">
+                                <span style="position: relative;left: 70px;bottom: 25px;"> - </span>
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="number" ng-model="InstitutionPhone3" id="PH3" onkeypress="return isNumberKey(event);" placeholder="" class="form-control" maxlength="4">
+                            </div>
+                        </div>
+                        <br />
+                    </div>
+                    <div id="form_val2" class="col-md-6 col-sm-6">
+                        <div class="form-group ">
+                            <label for="country" class="col-sm-8 control-label Questions">Do you want to provide an emergency contact(optional)?</label>
+                            <div class="col-sm-4">
+                                @*<div>
+                                        <label>
+                                            <input type="radio" ng-model="EmergencyContactOption" name="year1" value="true">Yes
+                                        </label>
+                                        <label>
+                                            <input type="radio" ng-model="EmergencyContactOption" name="year1" value="false" checked="">No
+                                        </label>
+                                    </div>*@
+                                <div class="radio-toolbar" ng-init="EmergencyContactOption=0">
+                                    <input class="val_radio_yes1" type="radio" ng-model="EmergencyContactOption" ng-value="1" id="radioEnrollPlanOptional6" name="radioEnrollPlan" value="true">
+                                    <label for="radioEnrollPlanOptional6">Yes</label>
+
+                                    <input class="val_radio_no1" type="radio" ng-model="EmergencyContactOption" ng-value="0" id="radioEnrollPlanOptional5" name="radioEnrollPlan" value="false">
+                                    <label for="radioEnrollPlanOptional5">No</label>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+                        <div class="form-group ">
+                            <label for="lastName" class="col-sm-6 control-label">First Name</label>
+                            <div class="col-sm-6">
+                                <input name="firstname" type="text" ng-model="Emergency_FirstName" id="Emergency_FirstName" placeholder="First Name" class="form-control">
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="form-group ">
+                            <label for="lastName" class="col-sm-6 control-label">Middle Initial</label>
+                            <div class="col-sm-6">
+                                <input type="text" ng-model="Emergency_Middle" id="Emergency_Middle" placeholder="Middle Initial" class="form-control">
+                            </div>
+                            <div class="col-sm-3">
+
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="form-group ">
+                            <label for="lastName" class="col-sm-6 control-label">Last Name</label>
+                            <div class="col-sm-6">
+                                <input name="lastname" type="text" ng-model="Emergency_LastName" id="Emergency_LastName" placeholder="Last Name" class="form-control">
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="form-group">
+                            <label for="lastName" class="col-sm-6 control-label">Relation</label>
+                            <div class="col-sm-6">
+                                <input name="relation" type="text" id="Relation" ng-model="Emergency_Relation" placeholder="Relation" class="form-control">
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="form-group ">
+                            <label for="dateofbirth" class="col-sm-6 control-label">Phone Number</label>
+                            @*<div class="col-sm-2">
+                                    <input type="text" ng-model="Emergency_Phone" id="lastName" placeholder="" class="form-control" maxlength="3">
+                                    <span style="position: relative;left: 70px;bottom: 25px;"> - </span>
+                                </div>
+                                <div class="col-sm-2">
+                                    <input type="text" id="lastName" placeholder="" class="form-control" maxlength="3">
+                                    <span style="position: relative;left: 70px;bottom: 25px;"> - </span>
+                                </div>
+                                <div class="col-sm-2">
+                                    <input type="text" id="lastName" placeholder="" class="form-control" maxlength="4">
+                                </div>*@
+                            <div class="col-sm-6">
+                                <div class="form-group phone-number">
+
+                                    <div class="col-sm-4 fred" style="">
+                                        <input type="number" id="ph12" placeholder="" onkeypress="return isNumberKey(event);" ng-model="Phone" class="form-control" value="" size="3" maxlength="3" title="">
+                                    </div>
+
+                                    <div class="col-sm-4 fred">
+                                        <input type="number" id="ph13" placeholder="" onkeypress="return isNumberKey(event);" ng-model="Phone2" class="form-control" value="" size="3" maxlength="3" title="">
+                                    </div>
+
+
+                                    <div class="col-sm-4">
+                                        <input type="number" id="ph14" placeholder="" onkeypress="return isNumberKey(event);" ng-model="Phone3" class="form-control" value="" size="4" maxlength="4" title="">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <br />
+                    </div>
+                </div>
+            </form>
+            <br>
+            <br>
+            <br>
+            @*<div class="form-group">
+                    <div class="col-md-12 col-sm-12 col-lg-12">
+                        <div class="col-md-3">
+                            <a href="~/Enrollment/GrpCovgeQues" class="btn btn-default">Previous</a>
+                        </div>
+                        <div class="col-md-3">
+                            <button type="button" class="btn btn-primary">Save</button>
+                        </div>
+                        <div class="col-md-3">
+                            <a href="~/Enrollment/OSB" class="btn btn-default">Next</a>
+
+                        </div>
+                        <div class="col-md-3">
+                            <button type="button" class="btn btn-default">Submit</button>
+                        </div>
+                    </div>
+                </div>*@
+            <div class="form-group">
+                <div class="col-md-12 col-sm-12 col-lg-12 submiTbtn">
+                    <div class="col-md-2">
+                    </div>
+                    <div class="col-md-8" style="text-align: center;">
+                        <a href="~/Enrollment/GrpCovgeQues" class="btn btn-default">Previous</a>
+                        <button form="sec7_fomr44" id="btnnext" class="btn btn-default" ng-click="InsertLTCQInfo('Next')">Next & Save</button>
+                        <button type="button" class="btn btn-primary" ng-click="InsertLTCQInfo('Save')">Save</button>
+                    </div>
+                    <div class="col-md-2">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/Scripts/CommonModule.js"></script>
+<script src="~/Scripts/Scripts/LTCQuestions/LTCQControllerV6.js"></script>
+<script src="~/Scripts/Scripts/LTCQuestions/LTCQServiceV1.js"></script>
+<script>
+    $(document).ready(function () {
+
+        $('#sec7_fomr44').bootstrapValidator({
+            // To use feedback icons, ensure that you use Bootstrap v3.1.0 or later
+            feedbackIcons: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            fields: {
+                instiname: {
+                    validators: {
+
+                        notEmpty: {
+                            message: 'Please enter Institution Name'
+                        }
+                    }
+                },
+                policynoom: {
+                    validators: {
+
+                        notEmpty: {
+                            message: 'Please enter Medicaid Policy Number'
+                        }
+                    }
+                },
+
+
+                instiaddress: {
+                    validators: {
+                        stringLength: {
+                            min: 6,
+                        },
+                        notEmpty: {
+                            message: 'Please enter Institution Address1'
+                        }
+                    }
+                },
+
+                insticity: {
+                    validators: {
+                        stringLength: {
+                            min: 4,
+                        },
+                        notEmpty: {
+                            message: 'Please enter Institution City'
+                        }
+                    }
+                },
+                instistate: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Please select Institution State'
+                        }
+                    }
+                },
+                instizip: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Please enter Institution Zip'
+                        },
+                        zipCode: {
+                            country: 'US',
+                            message: 'The value is not valid US postal code'
+                        },
+                    }
+                },
+
+                firstname: {
+                    validators: {
+
+                        notEmpty: {
+                            message: 'Please enter First Name'
+                        }
+                    }
+                },
+                lastname: {
+                    validators: {
+
+                        notEmpty: {
+                            message: 'Please enter Last Name'
+                        }
+                    }
+                },
+                relation: {
+                    validators: {
+
+                        notEmpty: {
+                            message: 'Please enter Relation'
+                        }
+                    }
+                },
+                date1: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Please enter Month'
+                        },
+                    }
+                },
+                date2: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Please enter Date'
+                        },
+                    }
+                },
+                date3: {
+                    validators: {
+                        stringLength: {
+                            min: 4,
+                            message: 'Enter Valid Number'
+                        },
+                        notEmpty: {
+                            message: 'Please enter Year'
+                        },
+                    }
+                },
+                }
+        })
+            .on('success.form.bv', function (e) {
+                $('#success_message').slideDown({ opacity: "show" }, "slow") // Do something ...
+                $('#contact_form').data('bootstrapValidator').resetForm();
+
+                // Prevent form submission
+                e.preventDefault();
+
+                // Get the form instance
+                var $form = $(e.target);
+
+                // Get the BootstrapValidator instance
+                var bv = $form.data('bootstrapValidator');
+
+                // Use Ajax to submit form data
+                $.post($form.attr('action'), $form.serialize(), function (result) {
+                    console.log(result);
+                }, 'json');
+            });
+    });
+</script>
+
+<script>
+
+    $(document).ready(function () {
+        $('#MDPolicyNo:input').attr('disabled', true);
+
+        $('#radioEnrollPlanOptional1').change(function () {
+            if ($('#radioEnrollPlanOptional1') != undefined) {
+
+                if ($('#radioEnrollPlanOptional1').is(":checked") == true) {
+                    $('#MDPolicyNo:input').removeAttr('disabled');
+
+                }
+            }
+        });
+
+        $('#radioEnrollPlanOptional2').change(function () {
+            if ($('#radioEnrollPlanOptional2') != undefined) {
+                if ($('#radioEnrollPlanOptional2').is(":checked") == true) {
+                    $('#MDPolicyNo:input').attr('disabled', true);
+                }
+            }
+        });
+    });
+
+    $(document).ready(function () {
+        $('#LTCMM:input').attr('disabled', true);
+        $('#LTCDD:input').attr('disabled', true);
+        $('#LTCYYYY:input').attr('disabled', true);
+        $('#InstitutionName1:input').attr('disabled', true);
+        $('#InstitutionAddress1:input').attr('disabled', true);
+        $('#InstitutionAddress2:input').attr('disabled', true);
+        $('#InstitutionCity1:input').attr('disabled', true);
+        $('#Zip1:input').attr('disabled', true);
+        $('#PH1:input').attr('disabled', true);
+        $('#PH2:input').attr('disabled', true);
+        $('#PH3:input').attr('disabled', true);
+        $('.textbox').attr('disabled', true);
+        $('#radioEnrollPlanOptional3').change(function () {
+            if ($('#radioEnrollPlanOptional3') != undefined) {
+
+                if ($('#radioEnrollPlanOptional3').is(":checked") == true) {
+
+                    $('#LTCMM:input').removeAttr('disabled');
+                    $('#LTCDD:input').removeAttr('disabled');
+                    $('#LTCYYYY:input').removeAttr('disabled');
+                    $('#InstitutionName1:input').removeAttr('disabled');
+                    $('#InstitutionAddress1:input').removeAttr('disabled');
+                    $('#InstitutionAddress2:input').removeAttr('disabled');
+                    $('#InstitutionCity1:input').removeAttr('disabled');
+                    $('#Zip1:input').removeAttr('disabled');
+                    $('#PH1:input').removeAttr('disabled');
+                    $('#PH2:input').removeAttr('disabled');
+                    $('#PH3:input').removeAttr('disabled');
+                    $('.textbox').removeAttr('disabled');
+                }
+
+            }
+        });
+
+        $('#radioEnrollPlanOptional4').change(function () {
+            if ($('#radioEnrollPlanOptional4') != undefined) {
+                if ($('#radioEnrollPlanOptional4').is(":checked") == true) {
+
+                    $('#LTCMM:input').attr('disabled', true);
+                    $('#LTCDD:input').attr('disabled', true);
+                    $('#LTCYYYY:input').attr('disabled', true);
+                    $('#InstitutionName1:input').attr('disabled', true);
+                    $('#InstitutionAddress1:input').attr('disabled', true);
+                    $('#InstitutionAddress2:input').attr('disabled', true);
+                    $('#InstitutionCity1:input').attr('disabled', true);
+                    $('#Zip1:input').attr('disabled', true);
+                    $('#PH1:input').attr('disabled', true);
+                    $('#PH2:input').attr('disabled', true);
+                    $('#PH3:input').attr('disabled', true);
+                    $('.textbox').attr('disabled', true);
+                }
+
+            }
+        });
+
+
+
+    });
+
+    $(document).ready(function () {
+        $('#Emergency_FirstName:input').attr('disabled', true);
+        $('#Emergency_Middle:input').attr('disabled', true);
+        $('#Emergency_LastName:input').attr('disabled', true);
+        $('#Relation:input').attr('disabled', true);
+        $('#ph12:input').attr('disabled', true);
+        $('#ph13:input').attr('disabled', true);
+        $('#ph14:input').attr('disabled', true);
+        $('#radioEnrollPlanOptional5').change(function () {
+            if ($('#radioEnrollPlanOptional5') != undefined) {
+
+                if ($('#radioEnrollPlanOptional5').is(":checked") == true) {
+                    $('#Emergency_FirstName:input').attr('disabled', true);
+                    $('#Emergency_Middle:input').attr('disabled', true);
+                    $('#Emergency_LastName:input').attr('disabled', true);
+                    $('#Relation:input').attr('disabled', true);
+                    $('#ph12:input').attr('disabled', true);
+                    $('#ph13:input').attr('disabled', true);
+                    $('#ph14:input').attr('disabled', true);
+                    //  $('.form - control').removeAttr('disabled');
+                }
+
+            }
+        });
+
+        $('#radioEnrollPlanOptional6').change(function () {
+            if ($('#radioEnrollPlanOptional6') != undefined) {
+                if ($('#radioEnrollPlanOptional6').is(":checked") == true) {
+                    $('#Emergency_FirstName:input').removeAttr('disabled');
+                    $('#Emergency_Middle:input').removeAttr('disabled');
+                    $('#Emergency_LastName:input').removeAttr('disabled');
+                    $('#Relation:input').removeAttr('disabled');
+                    $('#ph12:input').removeAttr('disabled');
+                    $('#ph13:input').removeAttr('disabled');
+                    $('#ph14:input').removeAttr('disabled');
+
+
+
+                }
+
+            }
+        });
+
+
+
+    });
+</script>
+<script>
+    $('.val_radio_no').click(function(){
+
+        $("#form_val1").addClass("no_valid");
+
+
+    });
+    $('.val_radio_yes').click(function () {
+
+
+        $("#form_val1").removeClass("no_valid");
+
+
+    });
+    $('.val_radio_no1').click(function () {
+
+        $("#form_val2").addClass("no_valid");
+
+
+    });
+    $('.val_radio_yes1').click(function () {
+
+
+        $("#form_val2").removeClass("no_valid");
+
+
+    });
+    $('.val_radio_no2').click(function () {
+
+        $("#form_val3").addClass("no_valid");
+
+
+    });
+
+</script>
+<script>
+    $(document).ready(function () {
+        $("#btnnext").click(function () {
+            $('#sec7_fomr44').bootstrapValidator('validate');
+        });
+        ValidateIt();
+    });
+
+</script>

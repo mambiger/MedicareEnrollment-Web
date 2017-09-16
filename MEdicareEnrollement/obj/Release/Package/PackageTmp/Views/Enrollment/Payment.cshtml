@@ -1,0 +1,138 @@
+﻿
+@{
+    ViewBag.Title = "Payment";
+    Layout = "~/Views/Shared/_MedicareLayout.cshtml";
+}
+
+<div class="main-content" data-ng-app="MedicareEnrollmentModule" ng-controller="PaymentController">
+    <div class="container">
+        <div class="form-head">
+            Section 9: Select a Payment Option
+        </div>
+        <div><label for="firstName" class="control-label">Plan:{{PLAName}}</label></div>
+        <div><label for="firstName" class="control-label">Plan year-2017</label></div>
+        <div class="container">
+
+            <div class="">
+                <strong>
+                    <span style="color: red;">*</span>Please select a payment method to pay your monthly plan premium and / or late enrollment penalties :
+                </strong> <br>
+                Humana has an automated option to help you pay your monthly premiums. The option is to have your monthly premium deducted from your Social Security or Railroad Retirement Board check. The other option is that we can mail you a payment book. Would you like to be set up on Social Security or Railroad Retirement Board deductions?
+            </div>
+            <br>
+
+            <form class="bs-example" action="">
+                <div class="panel-group" id="accordion"  ng-init="PaymentMethod=1">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <label for='r11' style='width: auto;'>
+                                    <input type='radio' id='r11' value="'radDummySocialSecurity'" ng-model="PaymentMethod" name='occupation' ng-value="1" required /> Social Security Check Deduction
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"></a>
+                                </label>
+                            </h4>
+                        </div>
+                        <div @*id="collapseOne" class="panel-collapse collapse"*@>
+                            <div class="panel-body">
+                                <p>
+                                    Automatic deduction from your monthly Social Security or Railroad Retirement Board Benefit Check
+                                    ** IMPORTANT NOTE about Social Security Check Deduction: The Social Security deduction may take two or more months to begin after Social Security approves the deduction. In most cases, if Social Security accepts your request for automatic deduction, the first deduction from your Social Security benefit check will include all premiums due from your enrollment effective date up to the point withholding begins. If Social Security does not approve your request for automatic deduction, we will send you a paper bill for your monthly premiums.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class=panel-title>
+                                <label for='r12' style='width: auto;'>
+                                    <input type='radio' id='r12' value="radPayDirect" ng-model="PaymentMethod" name="occupation" ng-value="'radPayDirect'" required /> I want to pay Humana directly
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"></a>
+                                </label>
+                            </h4>
+                        </div>
+                        <div @*id="collapseTwo" class="panel-collapse collapse"*@>
+                            <div class="panel-body">
+                                <p>Once we receive your signed enrollment form, we will mail you a payment book for paying your monthly premiums via personal check. The payment book will include instructions on paying using other payment options should you prefer to do so. You may also have the option to send advanced payments at one time.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <label for='r13' style='width: auto;'>
+                                    <input type='radio' id='r13' value="'radRRB'" ng-model="PaymentMethod" name='occupation' ng-value="'radRRB'" required /> Railroad Retirement Board Benefit Check Deduction
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree"></a>
+                                </label>
+                            </h4>
+                        </div>
+                        <div @*id="collapseThree" class="panel-collapse collapse"*@>
+                            <div class="panel-body">
+                                <p>
+                                    Automatic deduction from your monthly Railroad Retirement Board benefit check. You must currently be receiving a Railroad retirement Board benefit check in order to qualify for this payment option.
+                                    **IMPORTANT NOTE about Railroad Retirement Board Benefit (RRB) Check Deduction: The RRB deduction may take two or more months to begin after RRB approves the deduction. In most cases, if the RRB accepts your request for automatic deduction, the first deduction from your RRB benefit check will include all premiums due from your enrollment effective date up to the point withholding begins. If RRB does not approve your request for automatic deduction, we will send you a paper bill for your monthly premiums.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-info">
+                        <div class="panel-heading"></div>
+                        <div class="panel-body">
+                            Please Note: If you have Low Income Subsidy (LIS) and are enrolling in a plan with Drug Coverage, you may experience a change in premium or copay if your LIS level changes.
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+        <br>
+        <div class="container">
+            <div class="col-md-12 col-sm-12">
+
+            </div>
+        </div>
+    </div>
+
+    @*<div class="form-group">
+            <div class="col-md-12 col-sm-12 col-lg-12">
+                <div class="col-md-3">
+                    <a href="~/Enrollment/OSB" class="btn btn-default">Previous</a>
+                </div>
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-primary">Save</button>
+                </div>
+                <div class="col-md-3">
+                    <a href="~/Enrollment/Signature" class="btn btn-default">Next</a>
+                </div>
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-default">Submit</button>
+                </div>
+            </div>
+        </div>*@
+    <div class="col-md-12 submiTbtn">
+        <div class="col-md-2"></div>
+        <div class="col-md-8" style="text-align: center;">
+            <a href="~/Enrollment/OSB" class="btn btn-default">Previous</a>
+            <a ng-click="InsertPaymentInfo('Next')" class="btn btn-default">Next</a>
+            <button type="button" class="btn btn-primary" ng-click="InsertPaymentInfo('Save')">Save</button>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+    <div style="clear: both"></div>
+</div>
+<script>
+    $('#r11').on('click', function () {
+        $(this).parent().find('a').trigger('click')
+    })
+
+    $('#r12').on('click', function () {
+        $(this).parent().find('a').trigger('click')
+    })
+    $('#r13').on('click', function () {
+        $(this).parent().find('a').trigger('click')
+    })
+
+</script>
+<script src="~/Scripts/Scripts/CommonModule.js"></script>
+<script src="~/Scripts/Scripts/Payment/PaymentController.js"></script>
+<script src="~/Scripts/Scripts/Payment/PaymentService.js"></script>
+

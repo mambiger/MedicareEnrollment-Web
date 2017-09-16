@@ -1,0 +1,457 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MedicareLayout.cshtml";
+}
+
+<div class="main-content" data-ng-app="MedicareEnrollmentModule" ng-controller="DMQController" ng-init="getDMQuestions(@ViewBag.applicantdetailid)">
+
+    <div class="container" style="margin-top: 30px; margin-bottom: 30px;">
+        <form id="sec1_form" class="no_valid">
+            <div class="col-md-12">
+                <center><strong>Mandatory compensation disclosure statement - Read verbatim to the applicant:</strong></center> <br />
+                <div>"The person that is discussing plan options with you is either employed by or contracted with Humana. The person may be compensated based on your enrollment in an plan."</div>
+            </div>
+
+            <br />
+            <div class="col-md-12">
+                <div class="col-md-2 der">Select Plan:</div>
+                <div class="col-md-8 het">
+                    <select name="selectplan" id="ddlUser" ng-model="PLAName" ng-options="itemAccoun.PLAName as itemAccoun.PLAName for itemAccoun in getPlans" ng-change="getPlans()" class="textbox">
+                        <option value="">Select</option>
+                    </select>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+            <div class="col-sm-12">
+                <div class="form-head col-sm-12">
+                    Section 1: Decision Maker Questions
+                </div>
+                <div><label for="firstName" class="control-label">Plan year-2017</label></div>
+
+            </div>
+
+            <div class="col-md-6 col-sm-6">
+                <div class="form-qa">
+
+                    <div class="qa">
+                        <p><span style="color:red">*</span>Based on what we have discussed, is it your understanding that this plan provides coverage for medical AND prescription drugs?</p>
+                        <div class="col-sm-3">
+                            <div class="radio-toolbar" ng-init="mpdresult=0" style="width:97.6px">
+                                <input type="radio" ng-model="mpdresult" ng-value="1" id="mpdresult3" name="mpdresult" value="true">
+                                <label for="mpdresult3">Yes</label>
+
+                                <input type="radio" ng-model="mpdresult" ng-value="0" id="mpdresult2" name="mpdresult" value="false">
+                                <label for="mpdresult2">No</label>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="qa required">
+                        <p><span style="color:red">*</span>Do you agree that I notified you that Optional Supplemental Benefits are available with this plan?</p>
+                        <div class="col-sm-4">
+                            <div class="radio-toolbar" ng-init="osbresult=0" style="width:97.6px">
+
+                                <input type="radio" ng-model="osbresult" ng-value="1" id="osbresult1" name="year" value="true">
+                                <label for="osbresult1">Yes</label>
+
+                                <input type="radio" ng-model="osbresult" ng-value="0" id="osbresult2" name="year" value="false">
+                                <label for="osbresult2">No</label>
+                            </div>
+                        </div>
+
+                    </div>
+                    <br>
+                    <br>
+                    <div class="qa required">
+                        <p><span style="color:red">*</span>Please tell us who is completing your application form.</p>
+
+                        <div class="radio" ng-init="myown=0">
+                            <label><input class="val_radio" id="radio1" type="radio" name="optradio" ng-value="0" ng-model="myown" value='valuable' data-id="">I am completing my application on my own.</label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input class="val_radio1" type="radio" id="radio2" ng-value="1" ng-model="myown" name="optradio" value='valuable' data-id="POA" checked="checked">I have Power of Attorney or other authorization under state law and am applying on someone's behalf. <br>
+                                (Please Note: Power of Attorney must cover the ability tom make healthcare decisions and is usually referred to as a Durable Power of Attorney for Healthcare or Healthcare Power of Attorney.)<br>
+                                You will be receving a request for supporting documentation upon your enrollment.This supporting documentation is required in order to remain on the plan.
+                            </label>
+                        </div>
+                    </div>
+                    <div class="clear">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6" id="divpoa">
+                <p>Please complete the following information if you are valid Power of Attorney(POA) or have other authorization under state law </p>
+                <div class="form-qa1">
+                    <div class="form-group required">
+                        <label for="firstName" class="col-sm-6 control-label">POA First Name:</label>
+                        <div class="col-sm-6">
+                            <input name="first_name" type="text" id="firstName1" ng-model="poafn" placeholder="POA First Name" class="form-control">
+                        </div>
+                    </div>
+                    <br><br><br>
+                    <div class="form-group required">
+                        <label for="firstName" class="col-sm-6 control-label">POA Last Name:</label>
+                        <div class="col-sm-6">
+                            <input name="last_name" type="text" id="lastName1" placeholder="POA Last Name" ng-model="poalm" class="form-control">
+                        </div>
+                    </div>
+                    <br><br>
+                    <div class="form-group required">
+                        <label for="firstName" class="col-sm-6 control-label">POA Address 1:</label>
+                        <div class="col-sm-6">
+                            <input name="address1" type="text" id="Address1" placeholder="POA Address 1" ng-model="poaad1" class="form-control">
+                        </div>
+                    </div>
+                    <br><br>
+                    <div class="form-group ">
+                        <label for="firstName" class="col-sm-6 control-label">POA Address 2:</label>
+                        <div class="col-sm-6">
+                            <input name="address2" type="text" id="Address2" placeholder="POA Address 2" ng-model="poaad2" class="form-control">
+                        </div>
+                    </div>
+                    <br><br>
+                    <div class="form-group required">
+                        <label for="firstName" class="col-sm-6 control-label">POA City:</label>
+                        <div class="col-sm-6">
+                            <input name="city" type="text" id="city" placeholder="POA City" ng-model="poaCity" class="form-control">
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="form-group required">
+                        <label for="country" class="col-sm-6 control-label">POA State:</label>
+                        <div class="col-sm-6">
+                            @*<select id="country" class="form-control" ng-model="state">
+                                    <option>Select</option>
+                                    <option>Alabama</option>
+                                    <option>Select One</option>
+                                    <option>Select One</option>
+                                    <option>Select One</option>
+                                    <option>Select One</option>
+                                    <option>Select One</option>
+                                    <option>Select One</option>
+                                    <option>Select One</option>
+                                  <select name="ProspectNameSelect" id="ProspectNameSelect"
+                                                ng-options="getProspectNames.Prospect_Name  as getProspectNames.Prospect_Name for getProspectNames in getProspectName"
+                                                ng-model="selectedgetProspectName">
+                                            <option value="">--Select--</option>
+                                        </select>
+                                </select>*@
+                            <select name="state" id="ddlUser" ng-int="StateName = 'Select'" ng-model="state" ng-options="itemAccoun.StateAbbreviation as itemAccoun.StateName for itemAccoun in getStateData" ng-change="StateSelect()" class="textbox">
+                                <option value="">Select State</option>
+                            </select>
+                        </div>
+                    </div>
+                    <br><br>
+                    <div class="form-group required">
+                        <label for="firstName" class="col-sm-6 control-label">POA Zip Code:</label>
+                        <div class="col-sm-6">
+                            <input name="zip" type="text" id="POAZipCode" placeholder="POA Zip Code" ng-model="poazip" class="form-control" onkeypress="return isNumberKey(event);">
+                        </div>
+                    </div>
+                    <br><br>
+                    <div class="form-group required">
+                        <label for="firstName" class="col-sm-6 control-label">POA Phone Number:</label>
+                        @*<div class="col-sm-2">
+
+                                <input type="text" id="PhoneNumber" placeholder="" ng-model="poanum1" class="form-control" maxlength="3">
+                                <span style="position: relative;left: 75px;bottom: 30px;"> - </span>
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="text" id="firstName" placeholder="" ng-model="poanum2" class="form-control" maxlength="3">
+                                <span style="position: relative;left: 75px;bottom: 30px;"> - </span>
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="text" id="firstName" placeholder="" ng-model="poanum3" class="form-control" maxlength="4">
+                            </div>*@
+                        @*<div class="col-xs-4">
+                                <div class="form-group phone-number">
+
+                                    <div class="col-xs-3 fred" style="margin-left: 4%;">
+                                        <input type="tel" id="ph2" placeholder="" ng-model="poanum1" class="form-control" value="" size="3" maxlength="3" title="">
+                                    </div>
+
+                                    <div class="col-xs-3 fred">
+                                        <input type="tel" id="ph1" placeholder="" ng-model="poanum2" class="form-control" value="" size="3" maxlength="3" title="">
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <input type="tel" id="ph0" placeholder="" ng-model="poanum3" class="form-control" value="" size="4" maxlength="4" title="">
+                                    </div>
+                                </div>
+                            </div>*@
+                        <div class="col-sm-6">
+                            <div class="form-group phone-number">
+
+                                <div class="col-xs-3 col-sm-3 fred" style="">
+                                    <input name="phone1" id="ph2" placeholder="" ng-model="poanum1" class="form-control" value="" size="3" maxlength="3" title="" type="tel" onkeypress="return isNumberKey(event);">
+                                </div>
+
+                                <div class="col-xs-3 col-sm-3 fred">
+                                    <input name="phone2" id="ph1" placeholder="" ng-model="poanum2" class="form-control" value="" size="3" maxlength="3" title="" type="tel" onkeypress="return isNumberKey(event);">
+                                </div>
+                                <div class="col-xs-4 col-sm-4" style="width: 40%">
+                                    <input name="phone3" id="ph0" placeholder="" ng-model="poanum3" class="form-control" value="" size="4" maxlength="4" title="" type="tel" onkeypress="return isNumberKey(event);">
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+
+                    </div>
+
+                    <br>
+                    <div class="form-group required">
+                        <label for="firstName" class="col-sm-6 control-label">POA Relationship to Applicant:</label>
+                        <div class="col-sm-6">
+                            <input name="relationship" type="text" id="cust1" ng-model="poarel" placeholder="POA Relationship to Applicant" class="form-control">
+                        </div>
+                    </div>
+                    <br><br>
+                </div>
+
+            </div>
+
+        </form>
+
+        <div class="col-md-12 col-sm-12 col-lg-12 submiTbtn">
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-8" style="text-align: center;">
+                <a class="btn btn-default" href="~/Enrollment/CurrentEnrol">Dashboard</a>
+                <button form="sec1_form" ng-model="btnnext" class="btn btn-default" ng-click="InsertDMQ('Next')">Next</button>
+                <button type="button" ng-click="InsertDMQ('Save')" class="btn btn-primary">Save</button>
+            </div>
+
+            <div class="col-md-2">
+
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+
+<script src="~/Scripts/Scripts/CommonModule.js"></script>
+<script src="~/Scripts/Scripts/DMQ/DMQController.js"></script>
+<script src="~/Scripts/Scripts/DMQ/DMQServiceV1.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#sec1_form').bootstrapValidator({
+            // To use feedback icons, ensure that you use Bootstrap v3.1.0 or later
+            feedbackIcons: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            fields: {
+                selectplan: {
+                    validators: {
+
+                        notEmpty: {
+                            message: 'Please Select Plan'
+                        }
+                    }
+                },
+                first_name: {
+                    validators: {
+
+                        notEmpty: {
+                            message: 'Please enter POA First Name'
+                        }
+                    }
+                },
+                last_name: {
+                    validators: {
+
+                        notEmpty: {
+                            message: 'Please enter POA Last Name'
+                        }
+                    }
+                },
+                address1: {
+                    validators: {
+                        stringLength: {
+                            min: 6,
+                        },
+                        notEmpty: {
+                            message: 'Please enter POA Address 1'
+                        }
+                    }
+                },
+
+                city: {
+                    validators: {
+                        stringLength: {
+                            min: 4,
+                        },
+                        notEmpty: {
+                            message: 'Please enter POA City'
+                        }
+                    }
+                },
+                state: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Please select POA State'
+                        }
+                    }
+                },
+                zip: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Please enter POA Zip Code'
+                        },
+                        zipCode: {
+                            country: 'US',
+                            message: 'The value is not valid US postal code'
+                        },
+                    }
+                },
+
+
+                phone3: {
+                    validators: {
+                        stringLength: {
+                            min: 4,
+                            message: 'Enter valid number'
+                        },
+                        notEmpty: {
+                            message: 'Please enter Phone Number'
+                        },
+                    }
+                },
+                relationship: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Please enter POA Relationship to Applicant'
+                        }
+                    }
+                }
+            }
+        })
+
+            .on('success.form.bv', function (e) {
+                $('#success_message').slideDown({ opacity: "show" }, "slow") // Do something ...
+                $('#contact_form').data('bootstrapValidator').resetForm();
+
+                // Prevent form submission
+                e.preventDefault();
+
+                // Get the form instance
+                var $form = $(e.target);
+
+                // Get the BootstrapValidator instance
+                var bv = $form.data('bootstrapValidator');
+
+                // Use Ajax to submit form data
+                $.post($form.attr('action'), $form.serialize(), function (result) {
+                    console.log(result);
+                }, 'json');
+            });
+    });
+
+
+</script>
+<script>
+    $('.val_radio').click(function () {
+
+        $("#sec1_form").addClass("no_valid");
+
+
+    });
+    $('.val_radio1').click(function () {
+
+
+        $("#sec1_form").removeClass("no_valid");
+
+
+    });
+</script>
+<script>
+
+
+
+
+
+    function isNumberKey(evt) {
+
+        var charCode = (evt.which) ? evt.which : event.keyCode
+        if (charCode > 31 && (charCode < 48 || charCode > 57))
+            return false;
+        return true;
+    }
+    $(document).ready(function () {
+        $('#firstName1:input').attr('disabled', true);
+        $('#lastName1:input').attr('disabled', true);
+        $('#Address1:input').attr('disabled', true);
+        $('#Address2:input').attr('disabled', true);
+        $('#city:input').attr('disabled', true);
+        $('#POAZipCode:input').attr('disabled', true);
+        $('#ph2:input').attr('disabled', true);
+        $('#ph1:input').attr('disabled', true);
+        $('#ph0:input').attr('disabled', true);
+        $('#cust1:input').attr('disabled', true);
+        //$('.textbox').attr('disabled', true);
+        $('#radio2').change(function () {
+            if ($('#radio2') != undefined) {
+                debugger;
+
+                if ($('#radio2').is(":checked") == true) {
+                    $('#firstName1:input').removeAttr('disabled');
+                    $('#lastName1:input').removeAttr('disabled');
+                    $('#Address1:input').removeAttr('disabled');
+                    $('#Address2:input').removeAttr('disabled');
+                    $('#city:input').removeAttr('disabled');
+                    $('#POAZipCode:input').removeAttr('disabled');
+                    $('#ph2:input').removeAttr('disabled');
+                    $('#ph1:input').removeAttr('disabled');
+                    $('#ph0:input').removeAttr('disabled');
+                    $('#cust1:input').removeAttr('disabled'); //
+                    //$('.textbox').removeAttr('disabled');
+
+                }
+
+            }
+        });
+
+        $('#radio1').change(function () {
+            if ($('#radio1') != undefined) {
+                // debugger;
+
+                if ($('#radio1').is(":checked") == true) {
+
+                    $('#firstName1:input').attr('disabled', true);
+                    $('#lastName1:input').attr('disabled', true);
+                    $('#Address1:input').attr('disabled', true);
+                    $('#Address2:input').attr('disabled', true);
+                    $('#city:input').attr('disabled', true);
+                    $('#POAZipCode:input').attr('disabled', true);
+                    $('#ph2:input').attr('disabled', true);
+                    $('#ph1:input').attr('disabled', true);
+                    $('#ph0:input').attr('disabled', true);
+                    $('#cust1:input').attr('disabled', true);
+                    //$('.textbox').attr('disabled', true);
+                }
+
+            }
+        });
+
+
+
+    });
+
+
+    $(':radio').change(function (event) {
+
+        //var id = $(this).data('id');
+        //if (id == 'POA') {
+        //    $('#' + id).addClass('none').siblings().removeClass('none');
+        //    $('#divpoa').show();
+        //}
+        //else {
+        //    $('#divpoa').hide();
+        //}
+    });
+</script>

@@ -1,0 +1,342 @@
+﻿
+@{
+    ViewBag.Title = "Signature";
+    Layout = "~/Views/Shared/_MedicareLayout.cshtml";
+}
+
+
+
+<div class="main-content" data-ng-app="MedicareEnrollmentModule" ng-controller="SignatureController">
+
+    <div class="container">
+        <div class="form-head">
+            Section 10: Understanding Your Plan / Release of Information / Authorization
+        </div>
+        <div><label for="firstName" class="control-label">Plan:{{PLAName}}</label></div>
+        <div><label for="firstName" class="control-label">Plan year-2017</label></div>
+        <div class="container">
+
+            <center>
+                @*<div>*@
+
+                <div id="divpoa" class="form-group col-sm-12v">
+                    <label for="country" class="col-sm-9 control-label Questions">ARE YOU READY TO COMPLETE THE ENROLLMENT FORM FOR Humana Gold Plus HMO SNP-DE H2649-048?</label>
+                    <div class="col-sm-3">
+                        @*<div class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-default">
+                                    <input type="radio" ng-model="CompleteTheEnrollment" name="year" ng-value="Yes">Yes
+                                </label>
+                                <label class="btn btn-default active">
+                                    <input type="radio" ng-model="CompleteTheEnrollment" name="year" ng-value="No" checked="">No
+                                </label>
+                            </div>*@
+                        <div class="col-sm-3">
+                            <div class="radio-toolbar" ng-init="CompleteTheEnrollment=0">
+                                <input class="val_radio_yes" type="radio" ng-model="CompleteTheEnrollment" ng-value="1" id="radio1" name="radio" value="yes">
+                                <label for="radio1">Yes</label>
+
+                                <input class="val_radio_no" type="radio" ng-model="CompleteTheEnrollment" ng-value="0" id="radio2" name="radios" value="no" checked>
+                                <label for="radio2">No</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <center><strong>Signature</strong></center>
+                <br>
+                <br>
+                <div class="form-group required col-sm-12">
+                    <label for="lastName" class="col-sm-5 control-label">Licensed Sales Agent Name:</label>
+                    <div class="col-sm-3">
+                        <input type="text" value="Equita User" disabled class="form-control" />
+                    </div>
+                    <div class="col-sm-4"></div>
+                </div>
+                <br>
+                <br>
+                <div class="form-group col-sm-12">
+                    <label for="lastName" class="col-sm-5 control-label">Licensed Sales Agent SAN:</label>
+                    <div class="col-sm-3">
+                        <input type="text" value="123456" disabled class="form-control">
+                    </div>
+                    <div class="col-sm-4"></div>
+                </div>
+                <br>
+                <br>
+                <form id="sec10_form1">
+                    <div class="form-group required col-sm-12">
+                        <label for="lastName" class="col-sm-5 control-label">Affinity ID:</label>
+                        <div class="col-sm-3" ng-init="AffinityID='EGPI'">
+                            <select name="licensedcounty" id="country" ng-model="AffinityID" class="form-control">
+                                <option value="EGPI" ng-value="'EGPI'">Educator Group Plans Insurance</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-4"></div>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="form-group required col-sm-12">
+                        <label for="lastName" class="col-sm-5 control-label">Licensed Sales Agent SSN:</label>
+                        <div class="col-sm-3">
+                            <input name="ssn" type="text" id="" ng-model="SaleAgentSSN" placeholder="Licensed Sales Agent SSN" maxlength="9" class="form-control">
+                        </div>
+                        <div class="col-sm-4"></div>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="form-group required col-sm-12">
+                        <label for="lastName" class="col-sm-5 control-label">Confirm Licensed Sales Agent SSN:</label>
+                        <div class="col-sm-3">
+                            <input name="confirmssn" type="text" id="" ng-model="ConfirmAgentSSN" placeholder="Licensed Sales Agent SSN" maxlength="9" class="form-control">
+                        </div>
+                        <div class="col-sm-4"></div>
+                    </div>
+
+
+                    <br>
+                    <br>
+                    <div class="form-group required col-sm-12">
+                        <label for="lastName" class="col-sm-5 control-label">Medicare Claim Number:</label>
+                        <div class="col-sm-3">
+                            <input name="claimnumber" type="text" id="" ng-model="MedicareClaimNo" placeholder="Medicare Claim Number" class="form-control">
+                        </div>
+                        <div class="col-sm-4"></div>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="form-group required col-sm-12">
+                        <label for="lastName" class="col-sm-5 control-label">Confirm Medicare Claim Number:</label>
+                        <div class="col-sm-3">
+                            <input name="confirmclaimnumber" type="text" id="" ng-model="CMedicareClaimNo" placeholder="Confirm Medicare Claim Number" class="form-control">
+                        </div>
+                        <div class="col-sm-4"></div>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="form-group required col-sm-12">
+                        <label for="lastName" class="col-sm-5 control-label">Part A Effective Date</label>
+                        <div class="col-sm-1">
+                            <input style="padding: 0; text-align: center;" name="date1" type="number" id="" onkeypress="return isNumberKey(event);" ng-model="PartAEffective_Month" placeholder="MM" class="form-control" maxlength="2">
+                            <span style="position: relative;left: 48px;bottom: 28px;"> - </span>
+                        </div>
+                        <div class="col-sm-1">
+                            <input style="padding: 0; text-align: center;" name="date2" type="number" id="" onkeypress="return isNumberKey(event);" ng-model="PartAEffective_Date" placeholder="DD" class="form-control" maxlength="2">
+                            <span style="position: relative;left: 48px;bottom: 28px;"> - </span>
+                        </div>
+                        <div class="col-sm-1">
+                            <input style="padding: 0; text-align: center;" name="date3" type="number" id="" onkeypress="return isNumberKey(event);" ng-model="PartAEffective_Year" placeholder="YYYY" class="form-control" maxlength="4">
+                        </div>
+                        <div class="col-sm-4"></div>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="form-group required">
+                        <label for="lastName" class="col-sm-5 control-label">Part B Effective Date</label>
+                        <div class="col-sm-1">
+                            <input style="padding: 0; text-align: center;" name="datee1" type="number"  onkeypress="return isNumberKey(event);" id="" ng-model="PartBEffective_Month" placeholder="MM" class="form-control">
+                            <span style="position: relative;left: 48px;bottom: 28px;"> - </span>
+                        </div>
+                        <div class="col-sm-1">
+                            <input style="padding: 0; text-align: center;" name="datee2" type="number" onkeypress="return isNumberKey(event);" id="" ng-model="PartBEffective_Date" placeholder="DD" class="form-control">
+                            <span style="position: relative;left: 48px;bottom: 28px;"> - </span>
+                        </div>
+                        <div class="col-sm-1">
+                            <input style="padding: 0; text-align: center;" name="datee3" type="number" onkeypress="return isNumberKey(event);" id="" ng-model="PartBEffective_Year" placeholder="YYYY" class="form-control">
+                        </div>
+                    </div>
+                </form>
+        </div>
+        </center>
+    </div>
+
+    <div class="container">
+        <div class="form-group">
+        </div>
+    </div>
+    <div style="clear: both;"></div>
+
+    <div class="form-group" style="margin-bottom:40px;">
+        <div class="col-md-12 col-sm-12 col-lg-12 submiTbtn">
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-8" style="text-align: center;">
+                <button form="sec10_form1" href="~/Enrollment/Payment" id="btnnext" class="btn btn-default">Previous</button>
+                <button type="button" class="btn btn-default" ng-click="InsertSignatureInfo()">Submit</button>
+            </div>
+            <div class="col-md-2">
+            </div>
+            <div style="clear: both;"></div>
+        </div>
+    </div>
+</div>
+
+
+<script src="~/Scripts/Scripts/CommonModule.js"></script>
+<script src="~/Scripts/Scripts/Signature/SignatureControllerV3.js"></script>
+<script src="~/Scripts/Scripts/Signature/SignatureServiceV1.js"></script>
+<script>
+    $(document).ready(function () {
+
+        $('#sec10_form1').bootstrapValidator({
+            // To use feedback icons, ensure that you use Bootstrap v3.1.0 or later
+            feedbackIcons: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            fields: {
+                licensedname: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Please Enter Your Licensed Sales Agent Name'
+                        }
+                    }
+                },
+                licensedcounty: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Please Enter Your Educator Group Plans Insurance'
+                        }
+                    }
+                },
+                ssn: {
+                    validators: {
+                        stringLength: {
+                            min: 9,
+                            message: 'SSN must be 9 characters'
+                        },
+                        notEmpty: {
+                            message: 'Please Enter Your Licensed Sales Agent SSN'
+                        }
+                    }
+                },
+                confirmssn: {
+                    validators: {
+                        identical: {
+                            field: 'ssn',
+                            message: 'The SSN and its confirm are not the same'
+                        },
+                        stringLength: {
+                            min: 9,
+                            message: 'SSN must be 9 characters'
+                        },
+                        notEmpty: {
+                            message: 'Please Enter Your Licensed Sales Agent SSN'
+                        }
+                    }
+                },
+
+                claimnumber: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Please Enter Your Medicare Claim Number'
+                        }
+                    }
+                },
+                confirmclaimnumber: {
+                    validators: {
+                        identical: {
+                            field: 'claimnumber',
+                            message: 'The Claim Number and its confirm are not the same'
+                        },
+                        notEmpty: {
+                            message: 'Please Enter Your Medicare Claim Number'
+                        }
+                    }
+                },
+                date1: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Please Enter Month'
+                        },
+                    }
+                },
+                date2: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Please Enter Date'
+                        },
+                    }
+                },
+                date3: {
+                    validators: {
+                        stringLength: {
+                            min: 4,
+                            message: 'Enter Valid Number'
+                        },
+                        notEmpty: {
+                            message: 'Please Enter Year'
+                        },
+                    }
+                },
+                datee1: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Please Enter Month'
+                        },
+                    }
+                },
+                datee2: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Please Enter Date'
+                        },
+                    }
+                },
+                datee3: {
+                    validators: {
+                        stringLength: {
+                            min: 4,
+                            message: 'Enter Valid Number'
+                        },
+                        notEmpty: {
+                            message: 'Please Enter Year'
+                        },
+                    }
+                },
+
+            }
+        })
+            .on('success.form.bv', function (e) {
+                $('#success_message').slideDown({ opacity: "show" }, "slow") // Do something ...
+                $('#contact_form').data('bootstrapValidator').resetForm();
+
+                // Prevent form submission
+                e.preventDefault();
+
+                // Get the form instance
+                var $form = $(e.target);
+
+                // Get the BootstrapValidator instance
+                var bv = $form.data('bootstrapValidator');
+
+                // Use Ajax to submit form data
+                $.post($form.attr('action'), $form.serialize(), function (result) {
+                    console.log(result);
+                }, 'json');
+            });
+    });
+</script>
+<script>
+    $('.val_radio_no').click(function () {
+
+        $("#divpoa").addClass("no_valid");
+
+
+    });
+    $('.val_radio_yes').click(function () {
+
+
+        $("#divpoa").removeClass("no_valid");
+
+
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $("#btnnext").click(function () {
+            $('#sec10_form1').bootstrapValidator('validate');
+        });
+        ValidateIt();
+    });
+
+</script>

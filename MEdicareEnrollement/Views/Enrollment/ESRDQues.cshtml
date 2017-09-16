@@ -1,0 +1,153 @@
+﻿
+@{
+    ViewBag.Title = "ESRDQues";
+    Layout = "~/Views/Shared/_MedicareLayout.cshtml";
+}
+<div class="main-content" data-ng-app="MedicareEnrollmentModule" ng-controller="ESRDController">
+
+    <div class="container">
+        <div class="form-head">
+            Section 3: ESRD And Communication Related Questions
+        </div>
+        <div><label for="firstName" class="control-label">Plan:{{PLAName}}</label></div>
+        <div><label for="firstName" class="control-label">Plan year-2017</label></div>
+        <div class="container">
+            <div class="col-md-12 col-sm-12">
+                <div class="form-group required">
+                    <label for="country" style="text-align:left !important" class="col-sm-8 control-label">Have you been diagnosed with <u>End.Staged Rental Disease</u> or ESRO?</label>
+                    <div class="col-sm-4">
+                        <div class="">
+                            @*<label class="">
+                                    <input type="radio" ng-model="Esrd" name="year" value="True">Yes
+                                </label>
+                                <label class="">
+                                    <input type="radio" name="year" ng-model="Esrd" value="false" checked="">No
+                                </label>*@
+                            <div class="radio-toolbar" ng-init="Esrd=0" >
+                                <input type="radio" ng-model="Esrd" ng-value="1" id="mpdresult1" name="mpdresult" value="true">
+                                <label for="mpdresult1">Yes</label>
+
+                                <input type="radio" ng-model="Esrd" ng-value="0" id="mpdresult2" name="mpdresult" value="false">
+                                <label for="mpdresult2">No</label>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="form-group required">
+                    <label for="country" style="text-align:left !important" class="col-sm-8 control-label">Are you currently enrolled in another health plan that Humana offers in your state?</label>
+                    <div class="col-sm-4">
+                        @*<div class="">
+                                <label class="">
+                                    <input type="radio" ng-model="humanaoffers" name="year1" value="True">Yes
+                                </label>
+                                <label class="">
+                                    <input type="radio" ng-model="humanaoffers" name="year1" value="false" checked="">No
+                                </label>
+                            </div>*@
+                        <div class="radio-toolbar" ng-init="humanaoffers=0" >
+                            <input type="radio" ng-model="humanaoffers" ng-value="1" id="humanaoffers1" name="year" value="yes">
+                            <label for="humanaoffers1">Yes</label>
+
+                            <input type="radio" ng-model="humanaoffers" ng-value="0" id="humanaoffers2" name="year" value="no">
+                            <label for="humanaoffers2">No</label>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="form-group required">
+                    <label for="country" style="text-align:left !important" class="col-sm-8 control-label">Were you enrolled in a Medicare Advantage plan which was terminated or discontinued after December 31, 1998 AND are you making your first election since then?</label>
+                    <div class="col-sm-4">
+                        <div class="">
+                            @*<label class="">
+                                    <input type="radio" name="year2" ng-model="Kidneytrans" value="True">Yes
+                                </label>
+                                <label class="">
+                                    <input type="radio" name="year2" ng-model="Kidneytrans" value="false" checked="">No
+                                </label>*@
+                            <div class="radio-toolbar" ng-init="Kidneytrans=0" >
+                                <input type="radio" ng-model="Kidneytrans" ng-value="1" id="Kidneytrans1" name="Kidneytrans" value="yes">
+                                <label for="Kidneytrans1">Yes</label>
+
+                                <input type="radio" ng-model="Kidneytrans" ng-value="0" id="Kidneytrans2" name="Kidneytrans" value="no">
+                                <label for="Kidneytrans2">No</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <br>
+                <div class="form-group required">
+                    <label for="country" style="text-align:left !important" class="col-sm-8 control-label">Have you had a succesful kidney transplant?</label>
+                    <div class="col-sm-4">
+                        @*<div class="">
+                                <label class="">
+                                    <input type="radio" name="year3" ng-model="medicaladv" value="True">Yes
+                                </label>
+                                <label class="">
+                                    <input type="radio" name="year3" ng-model="medicaladv" value="false" checked="">No
+                                </label>
+                            </div>*@
+                        <div class="radio-toolbar" ng-init="medicaladv=0" >
+                            <input type="radio" ng-model="medicaladv" ng-value="1" id="medicaladv1" name="medicaladv" value="yes">
+                            <label for="medicaladv1">Yes</label>
+
+                            <input type="radio" ng-model="medicaladv" ng-value="0" id="medicaladv2" name="medicaladv" value="no">
+                            <label for="medicaladv2">No</label>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="form-group required">
+                    <label for="country" style="text-align:left !important" class="col-sm-8 control-label">Do you still require regular dialysis?</label>
+                    <div class="col-sm-4">
+                        @*<div class="">
+                                <label class="">
+                                    <input type="radio" name="year4" ng-model="regulardia" value="True">Yes
+                                </label>
+                                <label class="">
+                                    <input type="radio" name="year4" ng-model="regulardia" value="N" checked="">No
+                                </label>
+                            </div>*@
+                        <div class="radio-toolbar" ng-init="regulardia=0" >
+                            <input type="radio" ng-model="regulardia" ng-value="1" id="regulardia1" name="regulardia" value="yes">
+                            <label for="regulardia1">Yes</label>
+
+                            <input type="radio" ng-model="regulardia" ng-value="0" id="regulardia2" name="regulardia" value="no">
+                            <label for="regulardia2">No</label>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+            </div>
+
+        </div>
+        <div class="col-md-12 col-sm-12">
+
+
+        </div>
+        <div class="form-group">
+            <div class="col-md-12 col-sm-12 col-lg-12 submiTbtn">
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-8" style="text-align: center;">
+                    <a href="~/Enrollment/MedicareInfo" class="btn btn-default">Previous</a>
+                    <a href="~/Enrollment/ContactInfo" class="btn btn-default">Next</a>
+                    <button type="button" class="btn btn-primary" ng-click="InsESRD()">Save</button>
+                </div>
+                <div class="col-md-2">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="~/Scripts/Scripts/ESRD/ESRDController.js"></script>
+<script src="~/Scripts/Scripts/ESRD/ESRDService.js"></script>

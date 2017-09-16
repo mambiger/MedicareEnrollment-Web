@@ -1,0 +1,240 @@
+﻿@{
+    ViewBag.Title = "OSB";
+    Layout = "~/Views/Shared/_MedicareLayout.cshtml";
+}
+
+<div class="main-content" data-ng-app="MedicareEnrollmentModule" ng-controller="OSBController">
+    <div class="container">
+        <div class="form-head">
+            Section 8:Optional Supplemental Benefits
+        </div>
+        <div><label for="firstName" class="control-label">Plan:{{PLAName}}</label></div>
+        <div><label for="firstName" class="control-label">Plan year-2017</label></div>
+        <div class="container">
+
+            <div class="form-group required">
+                <label for="country" class="col-sm-8 control-label Questions">Are you interested in enrolling a supplemental benefit plan (viz: Dental,Vision etc)?</label>
+                <div class="col-sm-4">
+                    <div class="col-sm-3">
+                        <div class="radio-toolbar" ng-init="EnrollPlan=0">
+                            <input type="radio" ng-model="EnrollPlan" ng-value="1" id="radioEnrollPlan1" ng-change="OSBshow()" name="radioEnrollPlan3" value="1">
+                            <label for="radioEnrollPlan1">Yes</label>
+
+                            <input type="radio" ng-model="EnrollPlan" ng-value="0" id="radioEnrollPlan2" ng-change="OSBshow()" name="radioEnrollPlan3" value="0">
+                            <label for="radioEnrollPlan2">No</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+            <div class="form-group required">
+                <label for="country" class="col-sm-8 control-label Questions">Are you interested in enrolling adding/removing an additional optional supplemental benefit plan(viz: Dental,Vision etc)?</label>
+                <div class="col-sm-4">
+                    <div class="col-sm-3">
+                        <div class="radio-toolbar" ng-init="EnrollPlanOptional=0">
+                            <input type="radio" ng-model="EnrollPlanOptional" group="EnrollPlanOptional" ng-change="OSBshow()" ng-value="1" id="radioEnrollPlanOptional1" name="radioEnrollPlanOptional1" value="1">
+                            <label for="radioEnrollPlanOptional1">Yes</label>
+
+                            <input type="radio" ng-model="EnrollPlanOptional" group="EnrollPlanOptional" ng-change="OSBshow()" ng-value="0" id="radioEnrollPlanOptional2" name="radioEnrollPlanOptional2" value="0">
+                            <label for="radioEnrollPlanOptional2">No</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        @*<br>
+            <br>*@
+        <div class="container" ng-show="ShowOSB" id="osb">
+            <div class="col-md-12 col-sm-12">
+
+                <br>
+                <br>
+                <br>
+                <form class="form-horizontal" role="form">
+
+                    @*<div class="form-group ">
+                        <label for="firstName" class="col-sm-2 control-label">Description</label>
+                        <div class="col-md-3 col-sm-3">
+                        <div class="checkbox">
+                        <label>
+                        <input type="checkbox" name="">MyOption- Dental High PPO
+                        </label>
+                        </div>
+                        </div>
+                        <div class="col-md-3 col-sm-3">
+                        <button type="button" class="btn btn-info">
+                        View Details <span class="glyphicon glyphicon-chevron-right"></span>
+                        </button>
+                        </div>
+
+                        <label for="firstName" class="col-sm-2 control-label">Premium</label>
+                        <div class="col-md-2 col-sm-2">
+                        <input type="text" id="" placeholder="16.90$" class="form-control">
+                        </div>
+                        </div>*@
+
+
+                    <div class="form-group ">
+
+                        <div class="col-sm-8">
+                            <div class="cover">
+                                <select ng-model="SelectOSB" class="form-control" size="6" id="selectosb">
+                                    <option value="Dental-OSB001">OSB001 - MyOption Dental High PPO</option>
+                                    <option value="Vision-OSB004">OSB004 - MyOption Vision</option>
+                                    <option value="Other-OSB005">OSB005 - MyOption Plus</option>
+                                    <option value="Dental-OSB007">OSB007 - MyOption Enhanced Dental PPO</option>
+                                    <option value="Dental-OSB008">OSB008 - MyOption Enhanced Dental HMO</option>
+                                    <option value="Other-OSB010">OSB010 - MyOption Fitness</option>
+                                    <option value="Dental-OSB014">OSB014 - MyOption Platinum Dental</option>
+                                    <option value="Dental-OSB024">OSB024 - MyOption Dental Enriched HMO</option>
+                                    <option value="Dental-OSB025">OSB025 - MyOption Dental Enriched PPO</option>
+                                    <option value="Dental-OSB026">OSB026 - MyOption Dental Advantage HMO</option>
+                                    <option value="Dental-OSB027">OSB027 - MyOption Dental Advantage PPO</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <button type="button" id="btnPlus" class="btn btn-default" ng-click="OSBAdd()">
+                                <i class="fa fa-plus" aria-hidden="true"></i> Add
+                            </button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            <div id="osb1">
+                <div class="col-md-12 col-sm-12 osb-box">
+                    <div class="col-md-4 col-sm-4">
+                        <div class=""><h4>OSB Plan</h4></div>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        <div class=""><h4>Premium</h4></div>
+                    </div>
+                    <div class="col-md-2 col-sm-2">
+
+                    </div>
+
+                    <div class="class1" ng-hide="OSB1">
+                        <div class="col-md-12 col-sm-12 osb-box">
+
+                            <div class="col-md-4 col-sm-4">
+                                <div><label ng-model="OSBlbl1" class="control-label1"></label>{{OSBlbl1}}</div>
+                            </div>
+                            <div class="col-md-3 col-sm-3">
+                                <div class="">
+                                    <input type="number" ng-model="Premium1" class="form-control" id="Premium">
+                                </div>
+                            </div>
+                            <div class="col-md-1 col-sm-1">
+                                <button type="button" id="btnMinus1" ng-click="OSBMinus1()" class="btn btn-default">
+                                    <i class="fa fa-minus" aria-hidden="true"></i>
+                                </button>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4">
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <br /><br /><br />
+                    <br />
+                    <div class="class2" ng-hide="OSB2">
+                        <div class="col-md-12 col-sm-12 osb-box">
+
+                            <div class="col-md-4 col-sm-4">
+                                <div><label ng-model="OSBlbl2" class="control-label2"></label>{{OSBlbl2}}</div>
+                            </div>
+                            <div class="col-md-3 col-sm-3">
+                                <div class="">
+                                    <input type="number" ng-model="Premium2" class="form-control" id="Premium1">
+                                </div>
+                            </div>
+                            <div class="col-md-1 col-sm-1">
+                                <button type="button" id="btnMinus2" ng-click="OSBMinus2()" class="btn btn-default">
+                                    <i class="fa fa-minus" aria-hidden="true"></i>
+                                </button>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4">
+
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <br />
+                    <br />
+                    <div class="t">
+                        <div class="col-md-12 col-sm-12">
+
+                            <div class="col-md-4 col-sm-4">
+                                <div><label for="" class="control-label">Total Premium</label></div>
+                            </div>
+                            <div class="col-md-3 col-sm-3">
+                                <div class="">
+                                    @*<input type="text" ng-model="Total" class="form-control" id="dg">*@
+                                    <p ng-model="Total">{{ Premium1 + Premium2 }}</p>
+                                    @*<input type="text" ng-model="OSB1" class="form-control" id="osbValue1">
+                                        <input type="text" ng-model="OSB2" class="form-control" id="osbValue2">*@
+                                    <input type="hidden" name="OSBvalue1" ng-model="Selected1" ng-update-hidden id="osbValue1" />
+                                    <input type="hidden" name="OSBvalue2" ng-model="Selected2" ng-update-hidden id="osbValue2" />
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4">
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="class3">
+                        <div class="col-md-12 col-sm-12 osb-box">
+
+                            <div class="col-md-4 col-sm-4">
+                                <div></div>
+                            </div>
+                            <div class="col-md-3 col-sm-3">
+                                <div class="">
+                                    <div><label for="firstNameer" class="control-label3"></label></div>
+                                </div>
+                            </div>
+                            <div class="col-md-1 col-sm-1">
+
+                            </div>
+
+                            <div class="col-md-4 col-sm-4">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div style="clear: both;"></div>
+                    <br />
+                    <br />
+                    <br />
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-md-12 submiTbtn">
+        <div class="col-md-2"></div>
+        <div class="col-md-8" style="text-align: center;">
+            <a href="~/Enrollment/LTCQuestions" class="btn btn-default">Previous</a>
+            <a ng-click="InsertOSBInfo('Next')" class="btn btn-default">Next</a>
+            <button type="button" class="btn btn-primary" ng-click="InsertOSBInfo('Save')">Save</button>
+        </div>
+        <div class="col-md-2"></div>
+
+    </div>
+</div>
+<div style="clear: both"></div>
+
+<script src="~/Scripts/Scripts/CommonModule.js"></script>
+<script src="~/Scripts/Scripts/OSB/OSBController.js"></script>
+<script src="~/Scripts/Scripts/OSB/OSBService.js"></script>
+
+
+

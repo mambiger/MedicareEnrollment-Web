@@ -1,0 +1,173 @@
+﻿
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_MedicareLayout.cshtml";
+}
+
+
+<div class="main-content" data-ng-app="MedicareEnrollmentModule" ng-controller="RegistrationController">
+    <div class="container">
+        <div class="caption-heading">
+            <div class="caption-h">
+                Register
+            </div>
+        </div>
+
+    </div>
+    <div class="container">
+        <div class="form-head">
+            Create a New account
+        </div>
+        <div class="container">
+
+            <form id="reg_form1" class="form-horizontal" role="form">
+                <div class="col-md-12 col-sm-12">
+                    <div class="col-sm-6">
+                        @*<div class="form-group required">
+                                <label for="firstName" class="col-sm-5 control-label">Registration Type:</label>
+                                <div class="col-sm-5">
+                                    <input type="text" id="firstName" class="form-control" ng-model="RegType">
+                                </div>
+                                <div class="col-sm-2"></div>
+                            </div>
+                            <div class="form-group required">
+                                <label for="middleName" class="col-sm-5 control-label">Company Name:</label>
+                                <div class="col-sm-5">
+                                    <input type="text" id="middleName" class="form-control" ng-model="CompName">
+                                </div>
+                                <div class="col-sm-2"></div>
+                            </div>*@
+                        <div class="form-group required">
+                            <label for="lastName" class="col-sm-5 control-label">Agent First Name:</label>
+                            <div class="col-sm-5">
+                                <input name="firstname" type="text" id="lastName" class="form-control" ng-model="FirstName">
+                            </div>
+                            <div class="col-sm-2"></div>
+                        </div>
+                        <div class="form-group ">
+                            <label for="lastName" class="col-sm-5 control-label">Middle Name:</label>
+                            <div class="col-sm-5">
+                                <input name="" type="text" id="lastName" class="form-control" ng-model="MiddleName">
+                            </div>
+                            <div class="col-sm-2"></div>
+                        </div>
+                        <div class="form-group required">
+                            <label for="lastName" class="col-sm-5 control-label">Agent Last Name:</label>
+                            <div class="col-sm-5">
+                                <input name="lastName" type="text" id="lastName" class="form-control" ng-model="LastName">
+                            </div>
+                            <div class="col-sm-2"></div>
+                        </div>
+                        <div class="form-group required">
+                            <label for="lastName" class="col-sm-5 control-label">Agent SAN:</label>
+                            <div class="col-sm-5">
+                                <input name="agentsan" type="text" id="lastName" class="form-control" ng-model="SAN">
+                            </div>
+                            <div class="col-sm-2"></div>
+                        </div>
+
+                    </div>
+                    <div class="col-sm-6">
+                        @*<div class="form-group required">
+                                <label for="lastName" class="col-sm-5 control-label">Mailling Address:</label>
+                                <div class="col-sm-5">
+                                    <input type="text" id="lastName" class="form-control" ng-model="Address">
+                                </div>
+                                <div class="col-sm-2"></div>
+                            </div>
+                            <div class="form-group required">
+                                <label for="lastName" class="col-sm-5 control-label">City:</label>
+                                <div class="col-sm-5">
+                                    <input type="text" id="lastName" class="form-control" ng-model="City">
+                                </div>
+                                <div class="col-sm-2"></div>
+                            </div>
+                            <div class="form-group required">
+                                <label for="lastName" class="col-sm-5 control-label">State:</label>
+                                <div class="col-sm-5">
+                                    <input type="text" id="lastName" class="form-control" ng-model="State">
+                                </div>
+                                <div class="col-sm-2"></div>
+                            </div>
+                            <div class="form-group required">
+                                <label for="lastName" class="col-sm-5 control-label">PostalCode?</label>
+                                <div class="col-sm-5">
+                                    <input type="text" id="lastName" class="form-control" ng-model="PostalCode">
+                                </div>
+                                <div class="col-sm-2"></div>
+                            </div>*@
+                        <div class="form-group required">
+                            <label for="middleName" class="col-sm-5 control-label ">Affinity ID</label>
+                            <div class="col-sm-6">
+                                <select name="affinityid" id="affinityid" ng-model="AffinityID" ng-init="AffinityID='0'" class="form-control">
+                                    <option value="1">Educator Group Plans Insurance</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-1"></div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-12 col-sm-12">
+                    <div class="col-sm-6">
+                        <div class="form-group required">
+                            <label for="lastName" class="col-sm-5 control-label">Agent Email:</label>
+                            <div class="col-sm-5">
+                                <input name="email" type="text" id="lastName" class="form-control" ng-model="Email">
+                            </div>
+                            <div class="col-sm-2"></div>
+                        </div>
+                        <div class="form-group required">
+                            <label for="lastName" class="col-sm-5 control-label">Confirm Email:</label>
+                            <div class="col-sm-5">
+                                <input name="confirmemail" type="text" id="lastName" class="form-control" ng-model="ConfirmEmail">
+                            </div>
+                            <div class="col-sm-2"></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group required">
+                            <label for="lastName" class="col-sm-5 control-label">Password:</label>
+                            <div class="col-sm-5">
+                                <input name="password" type="password" id="lastName" class="form-control" ng-model="Password">
+                                <div class="col-sm-2"></div>
+                            </div>
+                        </div>
+                        <div class="form-group required">
+                            <label for="lastName" class="col-sm-5 control-label">Confirm Password:</label>
+                            <div class="col-sm-5">
+                                <input name="confirmpassword" type="password" id="lastName" class="form-control">
+                            </div>
+                            <div class="col-sm-2"></div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+        <div class="form-group">
+            <div class="col-md-12 col-sm-12 col-lg-12">
+
+                <center>  <button form="reg_form1" id="btnnext" type="submit" class="btn btn-default" ng-click="InsertRegistrationInfo()">Register</button></center>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/Scripts/CommonModule.js"></script>
+<script src="~/Scripts/Scripts/Registration/RegistrationControllerV1.js"></script>
+<script src="~/Scripts/Scripts/Registration/RegistrationServiceV1.js"></script>
+<script src="~/Content/regValidator.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $("#btnnext").click(function () {
+            $('#reg_form1').bootstrapValidator('validate');
+        });
+        ValidateIt();
+    });
+
+</script>
+
+
+

@@ -1,0 +1,549 @@
+﻿
+@{
+    ViewBag.Title = "ContactInfo";
+    Layout = "~/Views/Shared/_MedicareLayout.cshtml";
+}
+
+<div class="main-content" id="divMain" data-ng-app="MedicareEnrollmentModule" ng-controller="ContactInfoController">
+    <div class="container">
+        <div class="form-head">
+            Section 4: Contact Information
+        </div>
+        <div><label for="firstName" class="control-label">Plan:{{PLAName}}</label></div>
+        <div><label for="firstName" class="control-label">Plan year-2017</label></div>
+        <br>
+        <div class="container">
+            <form id="sec4_form1">
+                <div class="col-sm-6 col-md-6" style="border-right: solid thin #eee;">
+
+                    <div class="address-box-1">
+                        <h4 style="text-align: center;">Permanent Address Information</h4>
+                        <center>
+                            <div class="form-horizontal" role="form">
+                                <p style="text-align: right;">(Residential Address only-no P.O. box number)</p>
+                                <div class="form-group required" style="margin-top: 20px;">
+                                    <label for="firstName" class="col-sm-6 control-label">Permanent Address 1:</label>
+                                    <div class="col-sm-6">
+                                        <input name="permanentaddress1" type="text" id="permanentAddress1" ng-model="PermanentAddress1" placeholder="" class="form-control">
+                                    </div>
+
+                                </div>
+                                <div class="form-group ">
+                                    <label for="middleName" class="col-sm-6 control-label">Permanent Address 2:</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" id="permanentAddress2" ng-model="PermanentAddress2" placeholder="" class="form-control">
+                                    </div>
+
+                                </div>
+                                <div class="form-group required">
+                                    <label for="dateofbirth" class="col-sm-6 control-label">County:</label>
+                                    <div class="col-sm-6">
+                                        <input name="county" type="text" id="lastName" ng-model="Country" placeholder="" class="form-control">
+                                    </div>
+
+                                </div>
+                                <div class="form-group required">
+                                    <label for="dateofbirth" class="col-sm-6 control-label">City:</label>
+                                    <div class="col-sm-6">
+                                        <input name="city" type="text" id="city" ng-model="City" placeholder="" class="form-control">
+                                    </div>
+
+                                </div>
+                                <div class="form-group required">
+                                    <label for="dateofbirth" class="col-sm-6 control-label">State:</label>
+                                    <div class="col-sm-6">
+                                        @*<select id="country" ng-model="State" class="form-control">
+                                                <option>Select One</option>
+                                                <option>Alabama</option>
+                                                <option>Select One</option>
+                                                <option>Select One</option>
+                                                <option>Select One</option>
+                                                <option>Select One</option>
+                                                <option>Select One</option>
+                                                <option>Select One</option>
+                                                <option>Select One</option>
+                                            </select>*@
+                                        <select name="state" name="state" id="ddlUser" ng-int="StateName = 'Select'" ng-model="State" ng-options="itemAccoun.StateAbbreviation as itemAccoun.StateName for itemAccoun in getStateData" ng-change="StateSelect()" class="textbox">
+                                            <option value="">Select</option>
+                                        </select>
+                                    </div>
+
+                                </div>
+                                <div class="form-group required">
+                                    <label for="dateofbirth" class="col-sm-6 control-label">Zip Code:</label>
+                                    <div class="col-sm-6">
+                                        <input name="zipcode" type="text" id="zipCode" ng-model="Zip" placeholder="" class="form-control">
+                                    </div>
+
+                                </div>
+
+                                <!-- /.form-group -->
+
+                            </div>
+                        </center>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6">
+                    <div class="address-box-1">
+                        <h4 style="text-align: center;">Mailing Address Information </h4>
+                        <center>
+                            <div class="form-horizontal" role="form">
+                                <div class="form-group ">
+                                    <div class="col-md-12 col-sm-12">
+                                        <div class="checkbox" style="">
+                                            <label>
+                                                <input name="" ng-model="CheckSameasPermanent" id="checkbox1" type="checkbox">Check if the Mailing Address is same as Permanent Address
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group required">
+                                    <label style="" for="firstName" class="col-sm-6 control-label">Mailing Address 1:</label>
+                                    <div class="col-sm-6">
+                                        <input name="mailingaddress1" type="text" id="mailingAddress1" ng-model="MailingAddress1" placeholder="" class="form-control">
+                                    </div>
+
+                                </div>
+                                <div class="form-group ">
+                                    <label for="middleName" class="col-sm-6 control-label">Mailing Address 2:</label>
+                                    <div class="col-sm-6">
+                                        <input type="text" id="mailingAddress2" ng-model="MailingAddress2" placeholder="" class="form-control">
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group required">
+                                    <label for="dateofbirth" class="col-sm-6 control-label">Mailing City:</label>
+                                    <div class="col-sm-6">
+                                        <input name="city1" type="text" id="mailingCity" ng-model="MailingCity" placeholder="" class="form-control">
+                                    </div>
+
+                                </div>
+                                <div class="form-group required">
+                                    <label for="dateofbirth" class="col-sm-6 control-label">Mailing State:</label>
+                                    <div class="col-sm-6">
+                                        @*<select id="country" ng-model="MailingState" class="form-control">
+                                                <option>Select</option>
+                                                <option>Alabama</option>
+                                                <option>Select One</option>
+                                                <option>Select One</option>
+                                                <option>Select One</option>
+                                                <option>Select One</option>
+                                                <option>Select One</option>
+                                                <option>Select One</option>
+                                                <option>Select One</option>
+                                            </select>*@
+                                        <select name="state1" id="mddlUser" ng-model="MailingState" ng-options="itemAccoun.StateAbbreviation as itemAccoun.StateName for itemAccoun in getStateData" ng-change="StateSelect()" class="textbox">
+                                            <option value="" selected>Select</option>
+                                        </select>
+
+                                    </div>
+
+                                </div>
+                                <div class="form-group required">
+                                    <label for="dateofbirth" class="col-sm-6 control-label">Mailing Zip:</label>
+                                    <div class="col-sm-6">
+                                        <input name="zipcode1" type="text" id="mailingZip" ng-model="MailingZip" placeholder="" class="form-control">
+                                    </div>
+
+                                </div>
+
+                                <!-- /.form-group -->
+
+                            </div>
+                        </center>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-12">
+                    <div class="address-box-1">
+                        <h4 style="text-align: center;">Additional Contact Information</h4>
+                        <p>Please inform enrollee by providing an email address that they authorize Humana to send health information to this address</p>
+                        <center>
+                            <div class="form-horizontal" role="form">
+                                <div class="form-group required">
+                                    <label for="firstName" class="col-sm-6 control-label">OK to Email?</label>
+                                    <div class="col-sm-3">
+                                        @*<select id="country" ng-int="OKtoEmail = 2" name="country" ng-model="OKtoEmail" class="form-control">
+                                                <option value="">Select</option>
+                                                <option value="1">Yes</option>
+                                                <option value="0">No</option>
+                                            </select>*@
+                                        <div class="radio-toolbar" style="float:left" ng-init="OKtoEmail=0">
+                                            <input class="val_radio" type="radio" id="radio11" ng-model="OKtoEmail" ng-value="1" name="regulardia" value="yes">
+                                            <label for="radio11">Yes</label>
+
+                                            <input class="val_radio1" type="radio" id="radio21" ng-model="OKtoEmail" ng-value="0" name="regulardia" value="no">
+                                            <label for="radio21">No</label>
+                                        </div>
+                                        @*<select name="ddlStatus" id="ddlStatus" ng-model="JobStatus">
+                                                <option value="">--Select--</option>
+                                                <option value="O">Open</option>
+                                                <option value="H">Hold</option>
+                                                <option value="C">Close</option>
+                                            </select>*@
+                                    </div>
+                                    <span class="col-sm-3"></span>@*(<span style="color: red;">*</span> Must select Yes for e-Sig)*@
+                                </div>
+                                <div class="form-group divpoa">
+                                    <label for="middleName" class="col-sm-6 control-label">Applicant eMail Address:</label>
+                                    <div class="col-sm-3">
+                                        <input name="email" style="width: 106%;" type="text" id="AppeMail" ng-model="ApplicantEmailAdress" placeholder="" class="form-control">
+                                    </div>
+                                    <span class="col-sm-3"></span>
+                                </div>
+
+                                <div class="form-group divpoa">
+                                    <label for="dateofbirth" class="col-sm-6 control-label">Confirm Applicant eMail Address:</label>
+                                    <div class="col-sm-3">
+                                        <input name="confirmemail" style="width: 106%;" type="text" id="ConfAppeMail" ng-model="ConfirmEmailAdress" placeholder="" class="form-control">
+                                    </div>
+                                    <span class="col-sm-3"></span>
+
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-6 control-label">Phone Number:</label>
+
+                                    @*<div class="col-sm-3">
+                                                <input type="text" id="ph1" ng-model="Phone1" placeholder="" class="h33r form-control">
+
+                                                <input type="text" id="ph1" ng-model="Phone2" placeholder="" class="h33r form-control">
+
+                                                <input type="text" id="ph1" ng-model="Phone3" placeholder="" class="h33r form-control">
+
+                                        </div>*@
+                                    <div class="col-xs-4">
+
+                                        <div class="form-group phone-number">
+                                            <input type="number" id="ph1" placeholder="" ng-model="Phone1" onkeypress="return isNumberKey(event);" class="form-control first" value="" size="3" maxlength="3" title="">
+
+                                            <input type="number" id="ph1" placeholder="" ng-model="Phone2"  onkeypress="return isNumberKey(event);" class="form-control second" value="" size="3" maxlength="3" title="">
+
+                                            <input type="number" id="ph1" placeholder="" ng-model="Phone3" onkeypress="return isNumberKey(event);" class="form-control third" value="" size="4" maxlength="4" title="">
+                                            <div style="clear: both;"></div>
+                                        </div>
+                                    </div>
+
+
+                                    <span class="col-sm-3"></span>
+
+
+                                </div>
+
+
+                                <div class="form-group required">
+                                    <label for="firstName" class="col-sm-6 control-label">Language Preference:</label>
+                                    <div class="col-sm-3">
+
+
+                                        <select name="language" style="width:106%;" id="country" ng-model="LanguagePref" class="form-control">
+                                            <option value="" selected>Select Language</option>
+                                            <option value="English">English</option>
+                                            <option value="Spanish">Spanish</option>
+                                        </select>
+                                    </div>
+                                    <span class="col-sm-3"></span>
+                                </div>
+                                <p style="text-align:left">Please contact our Member Services Department at 1-800-457-4708 (TTY users should call 711) if you need information in another format or language other than what is listed above. Hours are from 8 a.m. to 8 p.m. local time, Monday through Friday. </p>
+
+                                <!-- /.form-group -->
+
+                            </div>
+                        </center>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="form-group">
+            <div class="col-md-12 col-sm-12 col-lg-12 submiTbtn">
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-8" style="text-align: center;">
+                    <a href="~/Enrollment/MedicareInfo" class="btn btn-default">Previous</a>
+                    <button form="sec4_form1" ng-click="InsertContactInfo('Next')" id="btnnext" class="btn btn-default">Next & Save</button>
+                    <button type="button" class="btn btn-primary" ng-click="InsertContactInfo('Save')">Save</button>
+                </div>
+                <div class="col-md-2">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/Scripts/CommonModule.js"></script>
+<script src="~/Scripts/Scripts/ContactInfo/ContactInfoController.js"></script>
+<script src="~/Scripts/Scripts/ContactInfo/ContactInfoServiceV1.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#sec4_form1').bootstrapValidator({
+            // To use feedback icons, ensure that you use Bootstrap v3.1.0 or later
+            feedbackIcons: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            fields: {
+
+                permanentaddress1: {
+                    validators: {
+                        
+                        notEmpty: {
+                            message: 'Please enter Permanent Address 1'
+                        }
+                    }
+                },
+
+                city: {
+                    validators: {
+                        stringLength: {
+                            min: 4,
+                        },
+                        notEmpty: {
+                            message: 'Please enter City'
+                        }
+                    }
+                },
+                state: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Please select State'
+                        }
+                    }
+                },
+                zipcode: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Please enter Zip Code'
+                        },
+                        zipCode: {
+                            country: 'US',
+                            message: 'The value is not valid US postal code'
+                        },
+                    }
+                },
+
+
+                county: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Please enter County'
+                        }
+                    }
+                },
+                email: {
+                    validators: {
+
+                        emailAddress: {
+                            message: 'The value is not a valid email address'
+                        },
+                        notEmpty: {
+                            message: 'Please enter Email'
+                        }
+                    }
+                },
+
+                confirmemail: {
+                    validators: {
+                        identical: {
+                            field: 'email',
+                            message: 'The Email and its confirm are not the same'
+                        },
+                        emailAddress: {
+                            message: 'The value is not a valid email address'
+                        },
+                        notEmpty: {
+                            message: 'Please confirm Email'
+                        }
+                    }
+                },
+
+
+
+                language: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Please select language'
+                        }
+                    }
+                },
+                mailingaddress1: {
+                    validators: {
+                        stringLength: {
+                            min: 8,
+                        },
+                        notEmpty: {
+                            message: 'Please enter  Mailing Address 1'
+                        }
+                    }
+                },
+
+                city1: {
+                    validators: {
+                        stringLength: {
+                            min: 4,
+                        },
+                        notEmpty: {
+                            message: 'Please enter Mailing City'
+                        }
+                    }
+                },
+                state1: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Please enter Mailing State'
+                        }
+                    }
+                },
+                zipcode1: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Please enter Mailing Zip'
+                        },
+                        zipCode: {
+                            country: 'US',
+                            message: 'The value is not valid US postal code'
+                        },
+                    }
+                },
+            }
+        })
+
+            .on('success.form.bv', function (e) {
+                $('#success_message').slideDown({ opacity: "show" }, "slow") // Do something ...
+                $('#contact_form').data('bootstrapValidator').resetForm();
+
+                // Prevent form submission
+                e.preventDefault();
+
+                // Get the form instance
+                var $form = $(e.target);
+
+                // Get the BootstrapValidator instance
+                var bv = $form.data('bootstrapValidator');
+
+                // Use Ajax to submit form data
+                $.post($form.attr('action'), $form.serialize(), function (result) {
+                    console.log(result);
+                }, 'json');
+            });
+    });
+
+
+</script>
+
+<script>
+    //
+
+
+
+    //angular.element(document).ready(function ($scope) {
+    //    debugger;
+
+    //    alert('asdfsa');
+    //});
+
+
+    $(document).ready(function () {
+        $('#checkbox1').change(function () {
+            if ($('#checkbox1') != undefined) {
+                debugger;
+                if ($('#checkbox1').is(":checked") == true) {
+
+                    $('#mailingAddress1:input').val($('#permanentAddress1:input').val());
+                    $('#mailingAddress2:input').val($('#permanentAddress2:input').val());
+                    $('#mailingCity:input').val($('#city:input').val());
+                    //  $('#mddlUser:input').val($('#ddlUser:input').val());
+                   // var valid = $('#ddlUser').val();
+                //    $('#mddlUser').selected(valid);
+                    $('#mailingZip:input').val($('#zipCode:input').val());
+
+                    var val123=$('#mddlUser');
+                    var val12=$('#ddlUser');
+
+                    var scope = angular.element(document.getElementById("divMain")).scope();
+                    scope.$apply(function () {
+                        debugger;
+                        scope.EditNavigate1();
+                    });
+
+
+
+                }
+                if ($('#checkbox1').is(":checked") == false) {
+
+                }
+            }
+        });
+    });
+
+        $(document).ready(function () {
+            $('#radio21').change(function () {
+                debugger;
+                if ($('#radio21') != undefined) {
+
+                    if ($('#radio21').is(":checked") == true) {
+                        $('#AppeMail:input').attr('disabled', true);
+                        $('#ConfAppeMail:input').attr('disabled', true);
+                        $('#AppeMail:input').val('');
+                        $('#ConfAppeMail:input').val('');
+                    }
+                }
+            });
+
+            $('#radio11').change(function () {
+
+
+                debugger;
+                if ($('#radio11') != undefined) {
+
+                    if ($('#radio11').is(":checked") == true) {
+                        $('#AppeMail:input').removeAttr('disabled');
+                        $('#ConfAppeMail:input').removeAttr('disabled');
+                    }
+
+                }
+            });
+        });
+
+
+ $(document).ready(function () {
+        // executes when HTML-Document is loaded and DOM is ready
+        //alert("document is ready");
+
+
+        if ($('#radio21') != undefined) {
+
+            if ($('#radio21').is(":checked") == true) {
+                $('#AppeMail:input').attr('disabled', true);
+
+                $('#ConfAppeMail:input').attr('disabled', true);
+              //  $('#AppeMail:input').val('');
+               // $('#ConfAppeMail:input').val('');
+            }
+        }
+
+
+    });
+</script>
+<script>
+    $('.val_radio1').click(function(){
+
+        $(".divpoa").addClass("no_valid");
+
+
+    });
+    $('.val_radio').click(function () {
+
+
+        $(".divpoa").removeClass("no_valid");
+
+
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $("#btnnext").click(function () {
+            $('#sec4_form1').bootstrapValidator('validate');
+        });
+        ValidateIt();
+    });
+
+</script>

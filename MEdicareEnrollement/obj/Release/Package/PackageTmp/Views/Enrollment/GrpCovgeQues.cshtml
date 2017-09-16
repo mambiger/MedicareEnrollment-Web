@@ -1,0 +1,388 @@
+﻿
+@{
+    ViewBag.Title = "GrpCovgeQues";
+    Layout = "~/Views/Shared/_MedicareLayout.cshtml";
+}
+<div class="main-content" data-ng-app="MedicareEnrollmentModule" ng-controller="GroupCoverageController">
+
+
+    <div class="main-content">
+
+        <div class="container">
+            <div class="form-head">
+                Section 6:Group Coverage Questions
+            </div>
+            <div><label for="firstName" class="control-label">Plan:{{PLAName}}</label></div>
+            <div><label for="firstName" class="control-label">Plan year-2017</label></div>
+            <div class="container">
+
+                <div class="col-sm-12 col-md-12" style="margin-bottom:10px; padding-bottom:10px;">
+                    <div class="form-group required">
+                        <label for="country" class="col-sm-4 control-label" style="padding-left: 30px; text-align: left !important; ">Once enrolled, will you or your spouse work?</label>
+                        <div class="col-sm-8">
+                            <div class="radio-toolbar" ng-init="YouOrSpouseWork=0">
+                                <input type="radio" ng-model="YouOrSpouseWork" ng-value="1" id="YouOrSpouseWork1" value="1">
+                                <label for="YouOrSpouseWork1">Yes</label>
+
+                                <input type="radio" ng-model="YouOrSpouseWork" ng-value="0" id="YouOrSpouseWork2" value="0">
+                                <label for="YouOrSpouseWork2">No</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-md-12">
+                    <form id="sec6_form1">
+                        <div class="col-md-6 col-sm-6" style="border-right: solid thin #eee;">
+                            <div class="form-group required">
+                                <label for="country" class="col-sm-8 control-label Questions">Once enrolled, will you or your spouse have other group health coverage?</label>
+                                <div class="col-sm-4">
+                                    <div class="radio-toolbar" ng-init="YouOrSpouseGroupHealth=0">
+                                        <input type="radio" ng-model="YouOrSpouseGroupHealth" ng-value="1" id="YouOrSpouseGroupHealth1" value="1">
+                                        <label for="YouOrSpouseGroupHealth1">Yes</label>
+
+                                        <input type="radio" ng-model="YouOrSpouseGroupHealth" ng-value="0" id="YouOrSpouseGroupHealth2" value="0">
+                                        <label for="YouOrSpouseGroupHealth2">No</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <br>
+                            <div class="form-group required">
+                                <label for="lastName" class="col-sm-6 control-label">Carrier Name</label>
+                                <div class="col-sm-6">
+                                    <input name="carriername" type="text" id="Carrier" ng-model="CarrierName" placeholder="Carrier Name" class="form-control">
+                                </div>
+                            </div>
+                            <br>
+                            <br>
+                            <div class="form-group required">
+                                <label for="lastName" class="col-sm-6 control-label">Policy Number</label>
+                                <div class="col-sm-6">
+                                    <input name="policyname" type="text" id="Policy" ng-model="PolicyNumber" placeholder="Policy Number" class="form-control">
+                                </div>
+                            </div>
+                            <br>
+                            <br>
+                            <div class="form-group required">
+                                <label for="lastName" class="col-sm-6 control-label">Carrier Address1</label>
+                                <div class="col-sm-6">
+                                    <input name="carrieraddress1" type="text" id="Address1" ng-model="CarrierAddress1" placeholder="Carrier Address1" class="form-control">
+                                </div>
+                            </div>
+                            <br>
+                            <br>
+                            <div class="form-group">
+                                <label for="lastName" class="col-sm-6 control-label">Carrier Address2</label>
+                                <div class="col-sm-6">
+                                    <input type="text" id="Address2" ng-model="CarrierAddress2" placeholder="Carrier Address2" class="form-control">
+                                </div>
+                            </div>
+                            <br>
+                            <br>
+                            <div class="form-group required">
+                                <label for="lastName" class="col-sm-6 control-label">Carrier City</label>
+                                <div class="col-sm-6">
+                                    <input name="carriercity" type="text" id="City" ng-model="CarrierCity" placeholder="Carrier City" class="form-control">
+                                </div>
+                            </div>
+                            <br>
+                            <br>
+                            <div class="form-group required">
+                                <label for="lastName" class="col-sm-6 control-label">Carrier State</label>
+                                <div class="col-sm-6">
+                                    <select name="carrierstate" id="ddlUser" ng-int="StateName = 'Select'" ng-model="CarrierState" ng-options="itemAccoun.StateAbbreviation as itemAccoun.StateName for itemAccoun in getStateData" ng-change="StateSelect()" class="form-control">
+                                        <option value="">Select State</option>
+                                    </select>
+                                    @*<input type="text" id="" ng-model="CarrierState" placeholder="Carrier State" class="form-control">*@
+                                </div>
+                            </div>
+                            <br>
+                            <br>
+                            <div class="form-group required">
+                                <label for="lastName" class="col-sm-6 control-label">Carrier Zip</label>
+                                <div class="col-sm-6">
+                                    <input name="carrierzip" type="text" id="Zip" ng-model="CarrierZip" placeholder="Carrier Zip" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="col-md-6 col-sm-6">
+                            <div class="form-group required">
+                                <label for="country" class="col-sm-8 control-label Questions">Will you have other prescription drug coverage in addition to this plan for which you are applying?</label>
+                                <div class="col-sm-4">
+
+                                    <div class="radio-toolbar" ng-init="OtherPrescription=0">
+                                        <input type="radio" ng-model="OtherPrescription" ng-value="1" id="OtherPrescription1" value="1">
+                                        <label for="OtherPrescription1">Yes</label>
+
+                                        <input type="radio" ng-model="OtherPrescription" ng-value="0" id="OtherPrescription2" value="0">
+                                        <label for="OtherPrescription2">No</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <br>
+                            <div class="form-group required">
+                                <label for="lastName" class="col-sm-6 control-label">Name of the other coverage</label>
+                                <div class="col-sm-6">
+                                    <input name="namecoverage" type="text" id="other" ng-model="OtherCoverage" placeholder="Name of the other coverage" class="form-control">
+                                </div>
+                            </div>
+                            <br>
+                            <br>
+                            <div class="form-group required">
+                                <label for="lastName" class="col-sm-6 control-label">Policy Number</label>
+                                <div class="col-sm-6">
+                                    <input name="policynumber" type="text" id="Number" ng-model="OtherPolicyNo" placeholder="Policy Number" class="form-control">
+                                </div>
+                            </div>
+                            <br>
+                            <br>
+                            <div class="form-group required">
+                                <label for="lastName" class="col-sm-6 control-label">Member ID Number</label>
+                                <div class="col-sm-6">
+                                    <input name="membernumber" type="text" id="Member" ng-model="OtherMemberID" placeholder="Member ID Number" class="form-control">
+                                </div>
+                            </div>
+                            <br>
+                            <br>
+                            <div class="form-group required">
+                                <label for="country" class="col-sm-8 control-label Questions">If your employer medical or/and prescription drug coverage will end and be replaced by the coverage applied for today once accepted by the centers for Medicare and Medicaid Services?</label>
+                                <div class="col-sm-4">
+                                    <div class="radio-toolbar" ng-init="AcceptedByCenters=0">
+                                        <input type="radio" ng-model="AcceptedByCenters" ng-value="1" id="AcceptedByCenters1" value="1">
+                                        <label for="AcceptedByCenters1">Yes</label>
+
+                                        <input type="radio" ng-model="AcceptedByCenters" ng-value="0" id="AcceptedByCenters2" value="0">
+                                        <label for="AcceptedByCenters2">No</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div style="clear: both"></div>
+    </div>
+
+    <div style="clear: both"></div>
+    <br />
+    <br />
+    <br />
+    <div class="form-group" style="margin-bottom:40px;">
+        <div class="col-md-12 col-sm-12 col-lg-12 submiTbtn">
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-8" style="text-align: center;">
+                @*<a href="~/Enrollment/Chronicnew" class="btn btn-default">Previous</a>*@
+                <a ng-click="Previous()" class="btn btn-default">Previous</a>
+                <button form="sec6_form1" ng-click="InsertGroupCoverageInfo('Next')" class="btn btn-default">Next</button>
+                <button type="button" class="btn btn-primary" ng-click="InsertGroupCoverageInfo('Save')">Save</button>
+            </div>
+            <div class="col-md-2">
+            </div>
+            <div style="clear: both"></div>
+        </div>
+
+    </div>
+    <div style="clear: both"></div>
+</div>
+
+
+
+
+<script src="~/Scripts/Scripts/CommonModule.js"></script>
+<script src="~/Scripts/Scripts/GroupCoverage/GroupCoverageControllerV2.js"></script>
+<script src="~/Scripts/Scripts/GroupCoverage/GroupCoverageService.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#sec6_form1').bootstrapValidator({
+            // To use feedback icons, ensure that you use Bootstrap v3.1.0 or later
+            feedbackIcons: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            fields: {
+                carriername: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Please enter Carrier Name'
+                        },
+                    }
+                },
+                policyname: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Please enter Policy Name'
+                        },
+                    }
+                },
+                carrieraddress1: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Please enter Carrier Address1'
+                        },
+                    }
+                },
+                carrieraddress2: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Please enter Carrier Address2'
+                        },
+                    }
+                },
+                carriercity: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Please enter Carrier City'
+                        },
+                    }
+                },
+                carrierstate: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Please enter Carrier State'
+                        },
+                    }
+                },
+                carrierzip: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Please enter Zip Code'
+                        },
+                        zipCode: {
+                            country: 'US',
+                            message: 'The value is not valid US postal code'
+                        },
+                    }
+                },
+                namecoverage: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Please enter Name'
+                        },
+                    }
+                },
+                policynumber: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Please enter Policy Number'
+                        },
+                    }
+                },
+                membernumber: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Please enter Member Number'
+                        },
+                    }
+                },
+
+            }
+        })
+
+            .on('success.form.bv', function (e) {
+                $('#success_message').slideDown({ opacity: "show" }, "slow") // Do something ...
+                $('#contact_form').data('bootstrapValidator').resetForm();
+
+                // Prevent form submission
+                e.preventDefault();
+
+                // Get the form instance
+                var $form = $(e.target);
+
+                // Get the BootstrapValidator instance
+                var bv = $form.data('bootstrapValidator');
+
+                // Use Ajax to submit form data
+                $.post($form.attr('action'), $form.serialize(), function (result) {
+                    console.log(result);
+                }, 'json');
+            });
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        if ($('#YouOrSpouseGroupHealth2').is(":checked") == true) {
+            $('#ddlUser:input').attr('disabled', true);
+            $('#Zip:input').attr('disabled', true);
+            $('#Address1:input').attr('disabled', true);
+            $('#Address2:input').attr('disabled', true);
+            $('#City:input').attr('disabled', true);
+            $('#Carrier:input').attr('disabled', true);
+            $('#Policy:input').attr('disabled', true);
+            $('.textbox').attr('disabled', true);
+        }
+        $('#YouOrSpouseGroupHealth2').change(function () {
+            if ($('#YouOrSpouseGroupHealth2').is(":checked") == true) {
+                $('#ddlUser:input').attr('disabled', true);
+                $('#Zip:input').attr('disabled', true);
+                $('#Address1:input').attr('disabled', true);
+                $('#Address2:input').attr('disabled', true);
+                $('#City:input').attr('disabled', true);
+                $('#Carrier:input').attr('disabled', true);
+                $('#Policy:input').attr('disabled', true);
+                $('.textbox').attr('disabled', true);
+            }
+        })
+
+        $('#YouOrSpouseGroupHealth1').change(function () {
+            if ($('#YouOrSpouseGroupHealth1') != undefined) {
+
+                if ($('#YouOrSpouseGroupHealth1').is(":checked") == true) {
+                    $('#ddlUser:input').removeAttr('disabled');
+                    $('#Zip:input').removeAttr('disabled');
+                    $('#Address1:input').removeAttr('disabled');
+                    $('#City:input').removeAttr('disabled');
+                    $('#Address2:input').removeAttr('disabled');
+                    $('#Carrier:input').removeAttr('disabled');
+                    $('#Policy:input').removeAttr('disabled');
+                    $('.textbox').removeAttr('disabled');
+
+                }
+
+            }
+        });
+
+        if ($('#OtherPrescription2').is(":checked") == true) {
+            $('#other:input').attr('disabled', true);
+            $('#Number:input').attr('disabled', true);
+            $('#Member:input').attr('disabled', true);
+            $('.textbox').attr('disabled', true);
+        }
+
+        $('#OtherPrescription1').change(function () {
+            if ($('#OtherPrescription1') != undefined) {
+
+                if ($('#OtherPrescription1').is(":checked") == true) {
+                    $('#other:input').removeAttr('disabled');
+                    $('#Number:input').removeAttr('disabled');
+                    $('#Member:input').removeAttr('disabled');
+                    $('.textbox').removeAttr('disabled');
+
+                }
+
+            }
+
+
+            $('#OtherPrescription2').change(function () {
+                if ($('#OtherPrescription2') != undefined) {
+                    $('#other:input').attr('disabled', true);
+                    $('#Number:input').attr('disabled', true);
+                    $('#Member:input').attr('disabled', true);
+                    $('.textbox').attr('disabled', true);
+
+                }
+            });
+        });
+    });
+</script>

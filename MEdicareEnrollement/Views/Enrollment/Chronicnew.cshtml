@@ -1,0 +1,581 @@
+﻿
+@{
+    ViewBag.Title = "Chronicnew";
+    Layout = "~/Views/Shared/_MedicareLayout.cshtml";
+}
+
+<div class="main-content" data-ng-app="MedicareEnrollmentModule" ng-controller="ChronicController" style="min-height:0">
+    <div class="container">
+        <div class="form-head">
+            Section 5: Chronic Questions
+        </div>
+        @*<div class="col-sm-12">
+                <label class="col-sm-2 control-label" style="text-align:left">Plan</label>
+                <label class="col-sm-10 control-label" style="text-align:left">{{PLAName}}</label>
+            </div>
+            <label class="col-sm-12control-label">Plan Year</label>
+            <label class="col-sm-12control-label">2017</label>*@
+        <div><label for="firstName" class="control-label">Plan:{{PLAName}}</label></div>
+        <div><label for="firstName" class="control-label">Plan year-2017</label></div>
+        <div class="container">
+            <div class="col-sm-12 col-md-12">
+                <div class="address-box-1">
+                    <form id="sec5_form12">
+                        <div class="col-sm-12 col-md-12">
+                            <div class="form-horizontal" role="form">
+                                <p><h4>CLINICAL QUALIFYING QUESTIONS FOR CHRONIC LUNG DISORDER</h4></p>
+                                <i>If the applicant answers "Yes" to any of the following questions, then he or she pre-qualifies for SNPs targeting enrollees with chronic lung disorders (Asthma, Chronic Bronchitis, Emphysema, Pulmonary Fibrosis, and Pulmonary Hypertension).</i>
+                                <br>
+                                <div class="form-group required" style="margin-top: 20px;">
+
+                                    <label class="col-sm-9 control-label Questions">Do you have any chronic breathing problems?</label>
+                                    <div class="col-sm-3">
+                                        <div class="radio-toolbar" ng-init="BP=0">
+                                            <input type="radio" ng-model="BP" ng-value="1" id="BreathProblem1" name="BreathProblem4" value="1">
+                                            <label for="BreathProblem1">Yes</label>
+
+                                            <input type="radio" ng-model="BP" ng-value="0" id="BreathProblem2" name="BreathProblem4" value="0">
+                                            <label for="BreathProblem2">No</label>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="form-group required">
+
+                                    <label class="col-sm-9 control-label Questions">NoHave you ever been told you have a lung problem such as COPD, emphysema, asthma, chronic bronchitis, scarring in the lung, or high pressure in the lungs?</label>
+                                    <div class="col-sm-3">
+                                        @*<div class="btn-group" data-toggle="buttons">
+                                                <label class="btn btn-default">
+                                                    <input type="radio" ng-model="LungProblem" ng-value="1" id="radio2" name="radio2" value="1">Yes
+                                                </label>
+                                                <input type="radio" ng-model="LungProblem" ng-value="0" id="radio2" name="radio2" value="0" ng-checked="true">
+                                                <label for="radio3">
+                                                    No
+                                                </label>
+                                            </div>*@
+                                        <div class="radio-toolbar" ng-init="LP=0">
+                                            <input type="radio" ng-model="LP" ng-value="1" id="LungProblem1" name="LungProblem" value="1">
+                                            <label for="LungProblem1">Yes</label>
+
+                                            <input type="radio" ng-model="LP" ng-value="0" id="LungProblem2" name="LungProblem" value="0">
+                                            <label for="LungProblem2">No</label>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group required">
+
+                                    <label class="col-sm-9 control-label Questions">Do you use inhalers or other medicines for your breathing more than 3 times per week?</label>
+                                    <div class="col-sm-3">
+
+                                        <div class="radio-toolbar" ng-init="IM=0">
+                                            <input type="radio" ng-model="IM" ng-value="1" id="InhalerOrMedicine1" name="InhalerOrMedicine" value="1">
+                                            <label for="InhalerOrMedicine1">Yes</label>
+
+                                            <input type="radio" ng-model="IM" ng-value="0" id="InhalerOrMedicine2" name="InhalerOrMedicine" value="0">
+                                            <label for="InhalerOrMedicine2">No</label>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <br>
+                                <div class="form-group required">
+                                    <label for="firstName" class="col-sm-6 control-label Questions">What medicines do you take for chronic lung disorder?</label>
+
+
+                                    <div class="col-sm-4">
+                                        <input name="chronic1" class="form-control" type="text" ng-model="MLD" id="comment" />
+                                    </div>
+                                    @*<div class="col-sm-2">
+                                        <button type="button" class="btn btn-default"> <i class="fa fa-plus" aria-hidden="true"></i></button>
+                                    </div>*@
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-12">
+                            <div class="form-horizontal" role="form">
+                                <p><h4>CLINICAL QUALIFYING QUESTIONS FOR END-STAGE RENAL DISEASE (ESRD)</h4></p>
+                                <i>If the applicant answers "Yes" to any of the following questions, then he or she pre-qualifies for SNPs targeting enrollees with end-stage renal disease (ESRD).</i>
+                                <br>
+                                <div class="form-group required" style="margin-top: 40px;">
+
+                                    <label class="col-sm-9 control-label Questions">Have you ever been told that you have end-stage renal disease (ESRD)?</label>
+                                    <div class="col-sm-3">
+                                        @*<div class="btn-group" data-toggle="buttons">
+                                                <label class="btn btn-default">
+                                                    <input type="radio" ng-model="ESRD" ng-value="1" id="radio5" name="radio5" value="1">Yes
+                                                </label>
+                                                <label class="btn btn-default active">
+                                                    <input type="radio" ng-model="ESRD" ng-value="0" id="radio5" name="radio5" value="0" ng-checked="true">No
+                                                </label>
+                                            </div>*@
+                                        <div class="radio-toolbar" ng-init="ES=0">
+                                            <input type="radio" ng-model="ES" ng-value="1" id="ESRD1" name="ESRD" value="true">
+                                            <label for="ESRD1">Yes</label>
+
+                                            <input type="radio" ng-model="ES" ng-value="0" id="ESRD2" name="ESRD" value="false">
+                                            <label for="ESRD2">No</label>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <div class="form-group required">
+
+                                    <label class="col-sm-9 control-label Questions">Are you currently undergoing dialysis (hemodialysis or peritoneal dialysis)?</label>
+                                    <div class="col-sm-3">
+                                        @*<div class="btn-group" data-toggle="buttons">
+                                                <label class="btn btn-default">
+                                                    <input type="radio" ng-model="HEorPEDialysis" ng-value="1" id="radio1" name="radios" value="1">Yes
+                                                </label>
+                                                <label class="btn btn-default active">
+                                                    <input type="radio" ng-model="HEorPEDialysis" ng-value="0" id="radio1" name="radios" value="0" ng-checked="true">No
+                                                </label>
+                                            </div>*@
+                                        <div class="radio-toolbar" ng-init="HEP=0">
+                                            <input type="radio" ng-model="HEP" ng-value="1" id="HEorPEDialysis1" name="HEorPEDialysis" value="1">
+                                            <label for="HEorPEDialysis1">Yes</label>
+
+                                            <input type="radio" ng-model="HEP" ng-value="0" id="HEorPEDialysis2" name="HEorPEDialysis" value="0">
+                                            <label for="HEorPEDialysis2">No</label>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group required">
+
+                                    <label class="col-sm-9 control-label Questions">Are you currently awaiting a kidney transplant?</label>
+                                    <div class="col-sm-3">
+                                        @*<div class="btn-group" data-toggle="buttons">
+                                                <label class="btn btn-default">
+                                                    <input type="radio" ng-model="KidneyTransplant" ng-value="1" id="radio7" name="radio7" value="1">Yes
+                                                </label>
+                                                <label class="btn btn-default active">
+                                                    <input type="radio" ng-model="KidneyTransplant" ng-value="0" id="radio7" name="radio7" value="0" ng-checked="true">No
+                                                </label>
+                                            </div>*@
+                                        <div class="radio-toolbar" ng-init="KidneyTransplant=0">
+                                            <input type="radio" ng-model="KidneyTransplant" ng-value="1" id="KidneyTransplant1" name="KidneyTransplant" value="1">
+                                            <label for="KidneyTransplant1">Yes</label>
+
+                                            <input type="radio" ng-model="KidneyTransplant" ng-value="0" id="KidneyTransplant2" name="KidneyTransplant" value="0">
+                                            <label for="KidneyTransplant2">No</label>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <br>
+                                <div class="form-group required">
+                                    <label for="firstName" class="col-sm-6 control-label Questions">What medicines do you take for ESRD?</label>
+                                    <div class="col-sm-4">
+                                        <input name="chronic2" class="form-control" type="text" ng-model="MedESRD" id="comment1" />
+                                    </div>
+                                    @*<div class="col-sm-2">
+                                        <button type="button" class="btn btn-default"> <i class="fa fa-plus" aria-hidden="true"></i></button>
+                                    </div>`*@
+
+                                </div>
+                            </div>
+                        </div>
+                        <div style="clear: both;"></div>
+                    </form>
+                </div>
+            </div>
+            <div style="clear: both;"></div>
+        </div>
+        <br />
+        <hr />
+        <br />
+        <div class="container">
+            <div class="col-sm-12 col-md-12">
+
+                <div class="address-box-1">
+                    <h4>Please list your primary care physician</h4>
+
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group ">
+                            <label for="firstName" class="col-sm-5 control-label">Primary care Physician Name:</label>
+                            <div class="col-sm-3">
+                                <input type="text" ng-model="PhysicianName" id="PhysicianName" class="form-control">
+                            </div>
+                            <div class="col-sm-4"></div>
+                        </div>
+                        <div class="form-group ">
+                            <label for="dateofbirth" class="col-sm-5 control-label">Telephone Number:</label>
+                            @*<div class="col-sm-1">
+                                    <input type="text" ng-model="Phone" placeholder="" class="form-control" maxlength="3">
+                                    <span style="position: relative;left: 80px;bottom: 25px;"> - </span>
+                                </div>
+                                <div class="col-sm-1">
+                                    <input type="text" ng-model="mpdresult" placeholder="" class="form-control" maxlength="3">
+                                    <span style="position: relative;left: 80px;bottom: 25px;"> - </span>
+                                </div>
+                                <div class="col-sm-1">
+                                    <input type="text" ng-model="mpdresult" placeholder="" class="form-control" maxlength="4">
+                                </div>*@
+                            <div class="col-xs-4">
+                                <div class="form-group phone-number">
+
+                                    <div class="col-xs-3 fred" style="">
+                                        <input type="number" id="ph1" placeholder="" onkeypress="return isNumberKey(event);" ng-model="Phone1" class="form-control" value="" size="3" maxlength="3" title="">
+                                    </div>
+
+                                    <div class="col-xs-3 fred">
+                                        <input type="number" id="ph1" placeholder="" onkeypress="return isNumberKey(event);" ng-model="Phone2" class="form-control" value="" size="3" maxlength="3" title="">
+                                    </div>
+
+
+                                    <div class="col-xs-4">
+                                        <input type="number" id="ph1" placeholder="" onkeypress="return isNumberKey(event);" ng-model="Phone3" class="form-control" value="" size="4" maxlength="4" title="">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4"></div>
+                        </div>
+                        @*<div class="form-group">
+                                <label class="col-sm-6 control-label"></label>
+                                <div class="col-sm-6">
+                                    <label class="control-label">555-555-5555</label>
+                                </div>
+                            </div>*@
+                        <div class="form-group ">
+                            <label for="dateofbirth" class="col-sm-5 control-label">Address:</label>
+                            <div class="col-sm-3">
+                                <input type="text" ng-model="Address" placeholder="" class="form-control">
+                            </div>
+                            <div class="col-sm-4"></div>
+                        </div>
+                        <div class="form-group ">
+                            <label for="dateofbirth" class="col-sm-5 control-label">City:</label>
+                            <div class="col-sm-3">
+                                <input type="text" ng-model="City" placeholder="" class="form-control">
+                            </div>
+                            <div class="col-sm-4"></div>
+                        </div>
+                        <div class="form-group ">
+                            <label for="dateofbirth" class="col-sm-5 control-label">State:</label>
+                            <div class="col-sm-3">
+                                @*<select ng-model="State" class="form-control">
+                                        <option>Alabama</option>
+                                        <option>Select One</option>
+                                        <option>Select One</option>
+                                        <option>Select One</option>
+                                        <option>Select One</option>
+                                        <option>Select One</option>
+                                        <option>Select One</option>
+                                        <option>Select One</option>
+                                    </select>*@
+                                <select id="ddlUser" ng-init="State = 'Select'" ng-model="State" ng-options="itemAccoun.StateAbbreviation as itemAccoun.StateName for itemAccoun in getStateData" ng-change="StateSelect()" class="form-control">
+                                    <option value="">Select</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-4"></div>
+                        </div>
+                        <div class="form-group ">
+                            <label for="dateofbirth" class="col-sm-5 control-label">Zip:</label>
+                            <div class="col-sm-3">
+                                <input type="text" ng-model="ZipCode" placeholder="" class="form-control">
+                            </div>
+                            <div class="col-sm-4"></div>
+                        </div>
+
+                        <!-- /.form-group -->
+
+                    </form>
+
+                </div>
+            </div>
+            <div style="clear: both;"></div>
+        </div>
+        <div class="container">
+
+
+            <h4>Please list your any specialist care physician you see regurarly</h4> <br>
+            <div class="col-sm-6 col-md-6">
+
+                <div class="address-box-1">
+
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group ">
+                            <label for="firstName" class="col-sm-6 control-label">Specialist Physician Name:</label>
+                            <div class="col-sm-6">
+                                <input type="text" ng-model="SPPhysicianName1" id="SPPhysicianName1" class="form-control">
+                            </div>
+
+                        </div>
+                        <div class="form-group ">
+                            <label for="dateofbirth" class="col-sm-6 control-label">Telephone Number:</label>
+                            @*<div class="col-sm-2">
+                                    <input type="text" ng-model="SPPhone1" placeholder="" class="form-control" maxlength="3">
+                                    <span style="position: relative;left: 80px;bottom: 25px;"> - </span>
+                                </div>
+                                <div class="col-sm-2">
+                                    <input type="text" ng-model="mpdresult" placeholder="" class="form-control" maxlength="3">
+                                    <span style="position: relative;left: 80px;bottom: 25px;"> - </span>
+                                </div>
+                                <div class="col-sm-2">
+                                    <input type="text" ng-model="mpdresult" placeholder="" class="form-control" maxlength="4">
+                                </div>*@
+                            <div class="col-sm-6">
+                                <div class="form-group phone-number">
+
+                                    <div class="col-sm-4 fred" style="">
+                                        <input type="number" id="ph1" placeholder="" onkeypress="return isNumberKey(event);" ng-model="SPhone1" class="form-control" value="" size="3" maxlength="3" title="">
+                                    </div>
+
+                                    <div class="col-sm-4 fred">
+                                        <input type="number" id="ph1" placeholder="" onkeypress="return isNumberKey(event);" ng-model="SPhone2" class="form-control" value="" size="3" maxlength="3" title="">
+                                    </div>
+
+
+                                    <div class="col-sm-4">
+                                        <input type="number" id="ph1" placeholder="" onkeypress="return isNumberKey(event);" ng-model="SPhone3" class="form-control" value="" size="4" maxlength="4" title="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @*<div class="form-group">
+                                <label class="col-sm-6 control-label"></label>
+                                <div class="col-sm-6">
+                                    <label class="control-label">555-555-5555</label>
+                                </div>
+                            </div>*@
+                        <div class="form-group ">
+                            <label for="dateofbirth" class="col-sm-6 control-label">Address:</label>
+                            <div class="col-sm-6">
+                                <input type="text" ng-model="SPAddress1" placeholder="" class="form-control">
+                            </div>
+
+                        </div>
+                        <div class="form-group ">
+                            <label for="dateofbirth" class="col-sm-6 control-label">City:</label>
+                            <div class="col-sm-6">
+                                <input type="text" ng-model="SPCity1" placeholder="" class="form-control">
+                            </div>
+
+                        </div>
+                        <div class="form-group ">
+                            <label for="dateofbirth" class="col-sm-6 control-label">State:</label>
+                            <div class="col-sm-6">
+                                @*<select ng-model="SPState1" class="form-control">
+                                        <option>Alabama</option>
+                                        <option>Select One</option>
+                                        <option>Select One</option>
+                                        <option>Select One</option>
+                                        <option>Select One</option>
+                                        <option>Select One</option>
+                                        <option>Select One</option>
+                                        <option>Select One</option>
+                                    </select>*@
+                                <select id="ddlUser" ng-init="SPState1 = 'Select'" ng-model="SPState1" ng-options="itemAccoun.StateAbbreviation as itemAccoun.StateName for itemAccoun in getStateData" ng-change="StateSelect()" class="form-control">
+                                    <option value="">Select</option>
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="form-group ">
+                            <label for="dateofbirth" class="col-sm-6 control-label">Zip:</label>
+                            <div class="col-sm-6">
+                                <input type="text" ng-model="SPZipCode1" placeholder="" class="form-control">
+                            </div>
+
+                        </div>
+
+                        <!-- /.form-group -->
+
+                    </form>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6">
+                <div class="address-box-1">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group ">
+                            <label for="firstName" class="col-sm-6 control-label">Specialist Physician Name:</label>
+                            <div class="col-sm-6">
+                                <input type="text" ng-model="SPPhysicianName2" id="SPPhysicianName2" class="form-control">
+                            </div>
+
+                        </div>
+                        <div class="form-group ">
+                            <label for="dateofbirth" class="col-sm-6 control-label">Telephone Number:</label>
+                            @*<div class="col-sm-2">
+                                    <input type="text" ng-model="SPPhone2" placeholder="" class="form-control" maxlength="3">
+                                    <span style="position: relative;left: 80px;bottom: 25px;"> - </span>
+                                </div>
+                                <div class="col-sm-2">
+                                    <input type="text" ng-model="mpdresult" placeholder="" class="form-control" maxlength="3">
+                                    <span style="position: relative;left: 80px;bottom: 25px;"> - </span>
+                                </div>
+                                <div class="col-sm-2">
+                                    <input type="text" ng-model="mpdresult" placeholder="" class="form-control" maxlength="4">
+                                </div>*@
+                            <div class="col-sm-6">
+                                <div class="form-group phone-number">
+
+                                    <div class="col-sm-4 fred" style="">
+                                        <input type="number" id="ph1" placeholder="" ng-model="TPhone1" onkeypress="return isNumberKey(event);" class="form-control" value="" size="3" maxlength="3" title="">
+                                    </div>
+
+                                    <div class="col-sm-4 fred">
+                                        <input type="number" id="ph1" placeholder="" ng-model="TPhone2" onkeypress="return isNumberKey(event);" class="form-control" value="" size="3" maxlength="3" title="">
+                                    </div>
+
+
+                                    <div class="col-sm-4">
+                                        <input type="number" id="ph1" placeholder="" ng-model="TPhone3" onkeypress="return isNumberKey(event);" class="form-control" value="" size="4" maxlength="4" title="">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        @*<div class="form-group">
+                                <label class="col-sm-6 control-label"></label>
+                                <div class="col-sm-6">
+                                </div>
+                            </div>*@
+                        <div class="form-group ">
+                            <label for="dateofbirth" class="col-sm-6 control-label">Address:</label>
+                            <div class="col-sm-6">
+                                <input type="text" ng-model="SPAddress2" class="form-control">
+                            </div>
+
+                        </div>
+                        <div class="form-group ">
+                            <label for="dateofbirth" class="col-sm-6 control-label">City:</label>
+                            <div class="col-sm-6">
+                                <input type="text" ng-model="SPCity2" class="form-control">
+                            </div>
+
+                        </div>
+                        <div class="form-group ">
+                            <label for="dateofbirth" class="col-sm-6 control-label">State:</label>
+                            <div class="col-sm-6">
+                                @*<select ng-model="SPState2" class="form-control">
+                                        <option>Alabama</option>
+                                        <option>Select One</option>
+                                        <option>Select One</option>
+                                        <option>Select One</option>
+                                        <option>Select One</option>
+                                        <option>Select One</option>
+                                        <option>Select One</option>
+                                        <option>Select One</option>
+                                    </select>*@
+                                <select id="ddlUser" ng-init="SPState2 = 'Select'" ng-model="SPState2" ng-options="itemAccoun.StateAbbreviation as itemAccoun.StateName for itemAccoun in getStateData" ng-change="StateSelect()" class="form-control">
+                                    <option value="">Select</option>
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="form-group ">
+                            <label for="dateofbirth" class="col-sm-6 control-label">Zip:</label>
+                            <div class="col-sm-6">
+                                <input type="text" ng-model="SPZipCode2" class="form-control">
+                            </div>
+
+                        </div>
+
+                        <!-- /.form-group -->
+
+                    </form>
+                </div>
+            </div>
+            <div style="clear: both;"></div>
+        </div>
+
+
+        <div style="clear: both;"></div>
+    </div>
+    <div style="clear: both;"></div>
+
+    <br /><br />
+    <div class="col-sm-12 col-md-12 submiTbtn" data-ng-app="MedicareEnrollmentModule" ng-controller="ChronicController">
+        <div class="col-sm-2 col-md-2"></div>
+        <div class="col-md-8" style="text-align: center;">
+            <a href="~/Enrollment/ChronicQues" class="btn btn-default">Previous</a>
+            <button form="sec5_form12" ng-click="InsertChronicInfo('Next')" id="btnnext" class="btn btn-default">Next</button>
+            <button type="button" class="btn btn-primary" ng-click="InsertChronicInfo('Save')">Save</button>
+        </div>
+        <div class="col-sm-2 col-md-2"></div>
+        <div style="clear: both;"></div>
+    </div>
+    <br /><br /><br />
+</div>
+
+<script src="~/Scripts/Scripts/Chronic/ChronicControllerV5.js"></script>
+<script src="~/Scripts/Scripts/Chronic/ChronicServiceV9.js"></script>
+
+<script>
+    $(function () {
+        $('select#sep').listbox();
+
+    });
+</script>
+
+
+<script>
+    $(document).ready(function () {
+        $('#sec5_form12').bootstrapValidator({
+            // To use feedback icons, ensure that you use Bootstrap v3.1.0 or later
+            feedbackIcons: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            fields: {
+                chronic1: {
+                    validators: {
+
+                        notEmpty: {
+                            message: 'Please enter value'
+                        }
+                    }
+                },
+                chronic2: {
+                    validators: {
+
+                        notEmpty: {
+                            message: 'Please enter value'
+                        }
+                    }
+                },
+
+
+               }
+        })
+            .on('success.form.bv', function (e) {
+                $('#success_message').slideDown({ opacity: "show" }, "slow") // Do something ...
+                $('#contact_form').data('bootstrapValidator').resetForm();
+
+                // Prevent form submission
+                e.preventDefault();
+
+                // Get the form instance
+                var $form = $(e.target);
+
+                // Get the BootstrapValidator instance
+                var bv = $form.data('bootstrapValidator');
+
+                // Use Ajax to submit form data
+                $.post($form.attr('action'), $form.serialize(), function (result) {
+                    console.log(result);
+                }, 'json');
+            });
+    });
+
+
+</script>
+@*<script src="~/Scripts/Scripts/CommonModule.js"></script>*@
+<script>
+    $(document).ready(function () {
+        $("#btnnext").click(function () {
+            $('#sec5_form12').bootstrapValidator('validate');
+        });
+        ValidateIt();
+    });
+
+</script>

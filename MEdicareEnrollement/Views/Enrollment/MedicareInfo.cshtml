@@ -1,0 +1,367 @@
+﻿
+@{
+    ViewBag.Title = "MedicareInfo";
+    Layout = "~/Views/Shared/_MedicareLayout.cshtml";
+}
+
+<div data-ng-app="MedicareEnrollmentModule" ng-controller="MCIController">
+    <div class="main-content" style="min-height: 0vh;">
+        <div class="container">
+            <div class="form-head">
+                Section 2: Medicare Information
+            </div>
+            <div><label for="firstName" class="control-label">Plan:{{PLAName}}</label></div>
+            <div><label for="firstName" class="control-label">Plan year:2017</label></div>
+        </div>
+
+        <center><p>To complete this section, refer to your Medicare card. Please fill in the information exactly as it appears on your card.</p></center>
+        <form id="sec2_form">
+            <div class="form-qa">
+                <div class="form-group required col-sm-12">
+                    <label for="firstName" class="col-sm-5 control-label">First Name:</label>
+                    <div class="col-sm-3">
+                        <input name="first_name" type="text" id="firstName" ng-model="firstname" placeholder="First Name" class="form-control">
+                    </div>
+                    <div class="col-sm-4"></div>
+                </div>
+                <div class="form-group col-sm-12">
+                    <label for="middleName" class="col-sm-5 control-label">Middle Name:</label>
+                    <div class="col-sm-3">
+                        <input type="text" id="middleName" ng-model="middleName" placeholder="Middle Name" class="form-control">
+                    </div>
+                    <div class="col-sm-4"></div>
+                </div>
+                <div class="form-group required col-sm-12">
+                    <label for="lastName" class="col-sm-5 control-label">Last Name:</label>
+                    <div class="col-sm-3">
+                        <input name="last_name" type="text" id="lastName" ng-model="lastName" placeholder="Last Name" class="form-control">
+                    </div>
+                    <div class="col-sm-4"></div>
+                </div>
+                <div class="form-group required col-sm-12">
+                    <label class="control-label col-sm-5">Gender:</label>
+                    <div class="col-sm-3">
+                        <div class="" style="text-align:left">
+                            <div class="col-sm-6" style="padding-left:0;">
+                                <label class="radio-inline">
+                                    <input name="gender" type="radio" id="maleRadio" ng-model="Gender" value="Male">Male
+                                </label>
+                            </div>
+                            <div class="col-sm-6" style="padding-left:0;">
+                                <label class="radio-inline">
+                                    <input name="gender" type="radio" id="maleRadio" ng-model="Gender" value="Female">Female
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4"></div>
+                </div> <!-- /.form-group -->
+                <div class="form-group required col-sm-12">
+                    <label for="stateofResidency" class="col-sm-5 control-label">State of Permanent Residence:</label>
+                    <div class="col-sm-3">
+                        @*
+                            <input type="text" id="State" ng-model="state" placeholder="State" class="form-control">*@
+                        @*<select id="State" class="form-control" ng-model="state">
+                                <option>AL</option>
+                                <option>Select One</option>
+                                <option>Select One</option>
+                                <option>Select One</option>
+                                <option>Select One</option>
+                                <option>Select One</option>
+                                <option>Select One</option>
+                                <option>Select One</option>
+                            </select>*@
+                        <select name="state" id="ddlUser" ng-int="StateName = 'Select'" ng-model="state" ng-options="itemAccoun.StateAbbreviation as itemAccoun.StateName for itemAccoun in getStateData" ng-change="StateSelect()" class="textbox">
+                            <option value="">Select State</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-4"></div>
+                </div>
+                <div class="form-group required col-sm-12">
+                    <label for="dateofbirth" class="col-sm-5 control-label">Date of Birth:</label>
+                    <div class="col-sm-3 phone-number">
+
+                        <input name="date1" type="number" id="lastName" onkeypress="return isNumberKey(event);" ng-model="domonth" placeholder="MM" class="form-control first" maxlength="2">
+
+
+                        <input name="date2" type="number" id="lastName" onkeypress="return isNumberKey(event);" placeholder="DD" ng-model="doday" class="form-control second" maxlength="2">
+
+
+                        <input name="date3" type="number" id="lastName" onkeypress="return isNumberKey(event);" placeholder="YYYY" ng-model="doyear" class="form-control third" maxlength="4">
+
+                    </div>
+                    <div class="col-sm-4"></div>
+                </div>
+            </div>
+        </form>
+        <div style="clear: both;"></div>
+        <div class="col-sm-12">
+            <div class="col-sm-2"></div>
+            <div class="col-md-8" style="text-align: center;">
+                @*<a href="~/Enrollment/Index" class="btn btn-default">Previous</a>
+                    <a href="~/Enrollment/ContactInfo" class="btn btn-default">Next</a>*@
+                @*<button type="button" class="btn btn-primary" id="SaveMCI" ng-click="InsertMCI()">Save</button>*@
+            </div>
+            <div class="col-sm-2"></div>
+        </div>
+    </div>
+
+    <hr />
+
+    @*<div class="main-content" data-ng-app="MedicareEnrollmentModule" ng-controller="MCIController" style="min-height: 0vh;">*@
+
+    <div class="container">
+        <div class="form-head">
+            Section 3: ESRD And Communication Related Questions
+        </div>
+    </div>
+    <div class="container">
+        <div class="col-md-12 col-sm-12">
+            <div class="form-group required">
+                <label for="country" style="text-align:left !important" class="col-sm-8 control-label">Have you been diagnosed with <u>End.Staged Rental Disease</u> or ESRO?</label>
+                <div class="col-sm-4">
+                    <div class="">
+                        @*<label class="">
+                                <input type="radio" ng-model="Esrd" name="year" value="True">Yes
+                            </label>
+                            <label class="">
+                                <input type="radio" name="year" ng-model="Esrd" value="false" checked="">No
+                            </label>*@
+                        <div class="radio-toolbar" ng-init="Esrd=0">
+                            <input type="radio" ng-model="Esrd" ng-value="1" id="mpdresult1" name="mpdresult" value="true">
+                            <label for="mpdresult1">Yes</label>
+
+                            <input type="radio" ng-model="Esrd" ng-value="0" id="mpdresult2" name="mpdresult" value="false" checked>
+                            <label for="mpdresult2">No</label>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+            <div class="form-group required">
+                <label for="country" style="text-align:left !important" class="col-sm-8 control-label">Are you currently enrolled in another health plan that Humana offers in your state?</label>
+                <div class="col-sm-4">
+                    @*<div class="">
+                            <label class="">
+                                <input type="radio" ng-model="humanaoffers" name="year1" value="True">Yes
+                            </label>
+                            <label class="">
+                                <input type="radio" ng-model="humanaoffers" name="year1" value="false" checked="">No
+                            </label>
+                        </div>*@
+                    <div class="radio-toolbar" ng-init="humanaoffers=0">
+                        <input type="radio" ng-model="humanaoffers" ng-value="1" id="humanaoffers1" name="year" value="yes">
+                        <label for="humanaoffers1">Yes</label>
+
+                        <input type="radio" ng-model="humanaoffers" ng-value="0" id="humanaoffers2" name="year" value="no" checked>
+                        <label for="humanaoffers2">No</label>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+            <div class="form-group required">
+                <label for="country" style="text-align:left !important" class="col-sm-8 control-label">Were you enrolled in a Medicare Advantage plan which was terminated or discontinued after December 31, 1998 AND are you making your first election since then?</label>
+                <div class="col-sm-4">
+                    <div class="">
+                        @*<label class="">
+                                <input type="radio" name="year2" ng-model="Kidneytrans" value="True">Yes
+                            </label>
+                            <label class="">
+                                <input type="radio" name="year2" ng-model="Kidneytrans" value="false" checked="">No
+                            </label>*@
+                        <div class="radio-toolbar" ng-init="Kidneytrans=0">
+                            <input type="radio" ng-model="Kidneytrans" ng-value="1" id="Kidneytrans1" name="Kidneytrans" value="yes">
+                            <label for="Kidneytrans1">Yes</label>
+
+                            <input type="radio" ng-model="Kidneytrans" ng-value="0" id="Kidneytrans2" name="Kidneytrans" value="no" checked>
+                            <label for="Kidneytrans2">No</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <div class="col-md-12" style="padding: 0px;">
+                <div class="form-group required col-md-12" style="padding: 0px;">
+                    <label for="country" style="text-align:left !important" class="col-sm-8 control-label">Have you had a succesful kidney transplant?</label>
+                    <div class="col-sm-4">
+                        @*<div class="">
+                                <label class="">
+                                    <input type="radio" name="year3" ng-model="medicaladv" value="True">Yes
+                                </label>
+                                <label class="">
+                                    <input type="radio" name="year3" ng-model="medicaladv" value="false" checked="">No
+                                </label>
+                            </div>*@
+                        <div class="radio-toolbar" ng-init="medicaladv=0">
+                            <input type="radio" ng-model="medicaladv" ng-value="1" id="medicaladv1" name="medicaladv" value="yes">
+                            <label for="medicaladv1">Yes</label>
+
+                            <input type="radio" ng-model="medicaladv" ng-value="0" id="medicaladv2" name="medicaladv" value="no">
+                            <label for="medicaladv2">No</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group required col-md-12" style="padding: 0px;">
+                    <label for="country" style="text-align:left !important" class="col-sm-8 control-label">Do you still require regular dialysis?</label>
+                    <div class="col-sm-4">
+                        @*<div class="">
+                                <label class="">
+                                    <input type="radio" name="year4" ng-model="regulardia" value="True">Yes
+                                </label>
+                                <label class="">
+                                    <input type="radio" name="year4" ng-model="regulardia" value="N" checked="">No
+                                </label>
+                            </div>*@
+                        <div class="radio-toolbar" ng-init="regulardia=0">
+                            <input type="radio" ng-model="regulardia" ng-value="1" id="regulardia1" name="regulardia" value="yes">
+                            <label for="regulardia1">Yes</label>
+
+                            <input type="radio" ng-model="regulardia" ng-value="0" id="regulardia2" name="regulardia" value="no">
+                            <label for="regulardia2">No</label>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div style="clear: both;"></div>
+
+
+    @*</div>*@
+
+    <div class="col-sm-12 submiTbtn">
+        <div class="col-sm-2"></div>
+        <div class="col-md-8" style="text-align: center;">
+            <a href="~/Enrollment/Index/1" class="btn btn-default">Previous</a>
+            <button form="sec2_form" class="btn btn-default" id="btnnext" ng-click="InsertMCI('Next')">Next & Save</button>
+            @*<button type="button" class="btn btn-primary" ng-click="InsESRD()">Save</button>*@
+            <button type="button" class="btn btn-primary" id="SaveESRD" ng-click="InsertMCI('Save')">Save</button>
+
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+
+
+</div>
+<div style="clear: both;"></div>
+
+
+
+<script src="~/Scripts/Scripts/CommonModule.js"></script>
+<script src="~/Scripts/Scripts/MCI/MCIServiceV1.js"></script>
+<script src="~/Scripts/Scripts/MCI/MCIControllerV5.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#sec2_form').bootstrapValidator({
+            // To use feedback icons, ensure that you use Bootstrap v3.1.0 or later
+            feedbackIcons: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            fields: {
+                first_name: {
+                    validators: {
+                        stringLength: {
+                            min: 2,
+                        },
+                        notEmpty: {
+                            message: 'Please enter First Name'
+                        }
+                    }
+                },
+                last_name: {
+                    validators: {
+                        stringLength: {
+                            min: 1,
+                        },
+                        notEmpty: {
+                            message: 'Please enter Last Name'
+                        }
+                    }
+                },
+                gender: {
+                    validators: {
+
+                        notEmpty: {
+                            message: 'Please select Gender'
+                        }
+                    }
+                },
+                state: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Please select  State'
+                        }
+                    }
+                },
+                date1: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Please enter Month'
+                        },
+                    }
+                },
+                date2: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Please enter Date'
+                        },
+                    }
+                },
+                date3: {
+                    validators: {
+                        stringLength: {
+                            min: 4,
+                            message: 'Enter Valid Number'
+                        },
+                        notEmpty: {
+                            message: 'Please enter Year'
+                        },
+                    }
+                },
+            }
+        })
+            .on('success.form.bv', function (e) {
+                $('#success_message').slideDown({ opacity: "show" }, "slow") // Do something ...
+                $('#contact_form').data('bootstrapValidator').resetForm();
+
+                // Prevent form submission
+                e.preventDefault();
+
+                // Get the form instance
+                var $form = $(e.target);
+
+                // Get the BootstrapValidator instance
+                var bv = $form.data('bootstrapValidator');
+
+                // Use Ajax to submit form data
+                $.post($form.attr('action'), $form.serialize(), function (result) {
+                    console.log(result);
+                }, 'json');
+            });
+    });
+
+
+
+</script>
+<script>
+    $(document).ready(function () {
+        $("#btnnext").click(function () {
+            $('#sec2_form').bootstrapValidator('validate');
+        });
+        ValidateIt();
+    });
+
+</script>
+@*<script src="~/Scripts/Scripts/ESRD/ESRDController.js"></script>
+    <script src="~/Scripts/Scripts/ESRD/ESRDService.js"></script>*@

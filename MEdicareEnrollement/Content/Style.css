@@ -1,0 +1,343 @@
+﻿/*Header CSS Starts Here*/
+.header {
+    background: #46b8da none repeat scroll 0 0;
+    color: #fff;
+    height: 70px;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.nav > li > a {
+    color: #fff;
+}
+/*Header CSS Ends Here*/
+
+/*.main-content {
+    min-height: 90vh;
+  
+}*/
+
+.main-content {
+    min-height: 70vh;
+    width: 100%;
+}
+
+.caption-heading {
+    background: #EEEEEE none repeat scroll 0 0;
+    padding: 15px;
+    font-size: 18px;
+    text-align: left;
+}
+
+.caption-h {
+    font-weight: 600;
+    padding: 5px 0;
+}
+
+.caption-c {
+    padding: 8px 10px 20px;
+}
+
+.form-head {
+    font-size: 26px;
+    font-weight: 400;
+    padding: 15px 0 10px;
+    text-align: center;
+}
+
+.form-qa {
+    font-size: 16px;
+}
+
+.clear {
+    clear: both;
+}
+
+.form-group.required .control-label:before {
+    content: "*";
+    color: red;
+}
+
+.time {
+    padding: 20px;
+}
+
+
+/*Footer CSS Starts Here*/
+.footer {
+    border-top: thin solid #eee;
+    margin-top: 15px;
+    padding: 10px 30px 5px;
+    text-align: left;
+}
+/*Footer CSS Ends Here*/
+
+
+.demo-placeholder {
+    height: 280px;
+}
+
+.demo button {
+    border: thin solid #848484;
+}
+
+/*for Medicare info Starts Here*/
+.MediInfo {
+    /*box-shadow: 1px 1px 5px #333;
+    background: #fff;
+    padding: 5px;
+    border: solid thin #333;*/
+}
+
+    .MediInfo .row {
+        margin: 10px auto;
+    }
+
+    .MediInfo .col-sm-2 {
+        margin-left: 22%;
+    }
+
+    .MediInfo .feedbtn {
+        margin-left: 40%;
+    }
+/*for Medicare info Ends Here*/
+
+/*Textbox CSS starts*/
+
+.textbox {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid #848484;
+    outline: 0;
+    height: 29px;
+    width: 100%;
+    padding: 5px;
+}
+
+    .textbox:focus, select:focus {
+        outline: none !important;
+        border-color: #719ECE;
+        box-shadow: 0 0 10px #719ECE;
+    }
+/*Textbox css ends*/
+
+
+.navbar-medi {
+    background: #46b8da none repeat scroll 0 0;
+    z-index: 1;
+}
+
+.navbar-toggle {
+    background-color: #fff;
+}
+
+    .navbar-toggle .icon-bar {
+        background: #46b8da none repeat scroll 0 0;
+    }
+
+.nav > li > a:focus, .nav > li > a:hover {
+    background-color: #eee;
+    color: #46b8da;
+    text-decoration: none;
+}
+
+body {
+    box-shadow: 0px 0px 10px #333;
+    font-family: calibri;
+    font-size: 16px;
+    margin: 0 auto;
+    width: 80%;
+}
+
+.navbar-brand > img {
+    background: #d4d4d4 none repeat scroll 0 0;
+    border-radius: 5px;
+    bottom: 25px;
+    display: block;
+    height: auto;
+    padding: 8px;
+    position: relative;
+    width: 100%;
+}
+
+
+/* for border*/
+.diti1 {
+    padding: 10px;
+    border: solid thin;
+    box-shadow: 0px 0px 5px;
+    margin-bottom: 0;
+    clear: both;
+}
+
+/*Control Lable*/
+.control-label {
+    text-align: right !important;
+}
+
+.btn-default.active {
+    background-color: #337ab7 !important;
+    border-color: #adadad;
+    color: #fff !important;
+}
+
+.container-fluid {
+    padding-left: 0px !important;
+    margin-left: -19px !important;
+}
+
+.Questions {
+    text-align: left !important;
+}
+
+.radio-toolbar input[type="radio"] {
+    display: none;
+}
+
+.radio-toolbar label {
+    display: inline-block;
+    background-color: #fff;
+    padding: 4px 11px;
+    font-family: Arial;
+    font-size: 14px;
+    cursor: pointer;
+    color: #333;
+    margin: 0px;
+    font-weight: 100;
+}
+
+    .radio-toolbar label:hover {
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.125) inset;
+    }
+
+.radio-toolbar input[type="radio"]:checked + label {
+    background-color: #337AB7;
+    color: #fff;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.125) inset;
+}
+
+.radio-toolbar {
+    background-color: transparent;
+    border-radius: 2px;
+    width: 100px;
+}
+
+    .radio-toolbar > label:nth-child(2) {
+        -moz-border-bottom-colors: none;
+        -moz-border-left-colors: none;
+        -moz-border-right-colors: none;
+        -moz-border-top-colors: none;
+        border-color: #E6E6E6 #E6E6E6 #E6E6E6 #E6E6E6;
+        border-image: none;
+        border-style: solid none solid solid;
+        border-width: thin medium thin thin;
+    }
+
+    .radio-toolbar > label:nth-child(4) {
+        -moz-border-bottom-colors: none;
+        -moz-border-left-colors: none;
+        -moz-border-right-colors: none;
+        -moz-border-top-colors: none;
+        border-color: #E6E6E6 #E6E6E6 #E6E6E6 currentcolor;
+        border-image: none;
+        border-style: solid solid solid none;
+        border-width: thin thin thin medium;
+        position: relative;
+        right: 4px;
+    }
+
+.het {
+    margin-top: 20px;
+    position: relative;
+    right: 60px;
+}
+
+.der {
+    position: relative;
+    top: 25px;
+    font-weight: 600;
+}
+
+.btnButton {
+    width: 120px;
+}
+
+body {
+    box-shadow: 1px 3px 5px #333;
+    font-family: calibri;
+    font-size: 16px;
+    margin: 0 auto;
+    width: 80%;
+}
+
+.container {
+    width: 100%;
+}
+
+.radio-toolbar {
+    background-color: transparent;
+    border-radius: 2px;
+    width: 100px;
+}
+
+    .radio-toolbar > label:nth-child(2) {
+        -moz-border-bottom-colors: none;
+        -moz-border-left-colors: none;
+        -moz-border-right-colors: none;
+        -moz-border-top-colors: none;
+        border-color: #E6E6E6 #E6E6E6 #E6E6E6 #E6E6E6;
+        border-image: none;
+        border-style: solid none solid solid;
+        border-width: thin medium thin thin;
+    }
+
+    .radio-toolbar > label:nth-child(4) {
+        -moz-border-bottom-colors: none;
+        -moz-border-left-colors: none;
+        -moz-border-right-colors: none;
+        -moz-border-top-colors: none;
+        border-color: #E6E6E6 #E6E6E6 #E6E6E6 currentcolor;
+        border-image: none;
+        border-style: solid solid solid none;
+        border-width: thin thin thin medium;
+        position: relative;
+        right: 4px;
+    }
+
+p {
+    font-size: 16px;
+}
+
+.btn-primary {
+    width: 18%;
+}
+
+.submiTbtn .btn.btn-default {
+    width: 18%;
+}
+
+.phone-number .fred::after {
+    content: "-";
+    position: absolute;
+    right: 5px;
+    color: black;
+    border: 0px solid;
+    top: 5px;
+}
+
+.phone-number .col-xs-4 {
+    width: 25%;
+}
+
+.phone-number .col-xs-3, .phone-number .col-xs-4 {
+    padding-left: 0;
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}

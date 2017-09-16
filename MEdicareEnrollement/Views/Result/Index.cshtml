@@ -1,0 +1,134 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MedicareLayout.cshtml";
+}
+
+<div class="main-content">
+    <div class="container">
+        <div class="caption-heading">
+            <div class="caption-h">
+                Enrollment
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <div class="container">
+        <div class="form-head">
+            Enrollment Status
+        </div>
+
+        <div class="container">
+            <div class="col-md-12 col-sm-12">
+                <form class="form-horizontal" role="form">
+                    @{  if (ViewBag.errordata == "")
+                        {
+                            <div class="form-group ">
+                                <label for="firstName" class="col-sm-5 control-label">Enrollment ID:</label>
+                                <div class="col-sm-3">
+                                    <label for="middleName" class="col-sm-3 control-label">@ViewBag.EnrollmentID</label>
+
+                                </div>
+                                <div class="col-sm-4"></div>
+                            </div>
+                            <div class="form-group ">
+                                <label for="middleName" class="col-sm-5 control-label">Enrollment Response Status:</label>
+                                <div class="col-sm-3">
+                                    <label for="middleName" class="col-sm-3 control-label">@ViewBag.EnrollmentResponse</label>
+
+
+                                </div>
+                                <div class="col-sm-4"></div>
+                            </div>
+                            if (@ViewBag.EnrollmentResponse == "ineligible")
+                            {
+                                <div class="form-group ">
+                                    <label for="middleName" class="col-sm-6 control-label">Ineligible Reasons</label>
+                                    <div class="col-sm-3">
+
+
+                                    </div>
+                                    <div class="col-sm-3"></div>
+                                </div>
+                                <div class="form-group ">
+                                    <label for="middleName" class="col-sm-3 control-label"></label>
+                                    <div class="col-sm-6">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>Ineligible Code</th>
+                                                    <th>Descripition</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+
+
+                                                @{ if (ViewBag.Ineligible != null)
+                                                    {
+                                                        MEdicareEnrollement.Controllers.ResultController.SuccessResponse Obj = ViewBag.Ineligible;
+                                                        foreach (var item in Obj.ineligible_reasons)
+                                                        {
+                                                            <tr>
+                                                                <td>@item.ineligible_code</td>
+                                                                <td>@item.ineligilbe_description</td>
+                                                            </tr>
+                                                        }
+                                                    }
+                                                }
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="col-sm-3"></div>
+                                </div>
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                        <div class="form-group ">
+                                                            <label for="lastName" class="col-sm-3 control-label">Error Response:</label>
+                                                            <div class="col-sm-6">
+
+                                                                <table class="table table-bordered">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>Code</th>
+                                                                            <th>Detail</th>
+                                                                            <th>Status</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+
+
+                                                                        @{ if (ViewBag.errorobj != null)
+                                                                            {
+                                                                                MEdicareEnrollement.Controllers.ResultController.ErrorResponse Obj = ViewBag.errorobj;
+                                                                                foreach (var item in Obj.errors)
+                                                                                {
+                                                                                    <tr>
+                                                                                        <td>@item.code</td>
+                                                                                        <td>@item.detail</td>
+                                                                                        <td>@item.status</td>
+                                                                                    </tr>
+                                                                                }
+                                                                            }
+                                                                        }
+
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                            <div class="col-sm-3"></div>
+                                                        </div>
+                                                                            }}
+                </form>
+            </div>
+            <div>
+                <a class="btn btn-primary" href="~/Enrollment/CurrentEnrol">Dashboard</a>&nbsp;&nbsp;<a class="btn btn-primary" target="_blank" href="@ViewBag.JsonUrl">RequestJSON</a>
+            </div>
+        </div>
+
+    </div>
+</div>

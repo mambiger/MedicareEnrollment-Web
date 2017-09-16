@@ -1,0 +1,83 @@
+﻿
+@{
+    ViewBag.Title = "PlanInfo";
+    Layout = "~/Views/Shared/_MedicareLayout.cshtml";
+}
+
+<div class="main-content">
+    <div class="container">
+        <div class="caption-heading">
+            <div class="caption-h">
+                Mandatory compensation disclosure statement - Read verbatim to the applicant:
+            </div>
+            <div class="caption-c">
+                "The person that is discussing plan options with you is either employed by or contracted with Humana.The person may be compensated based on your enrollment in a plan."
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="form-head">
+            Section 7 :Payment Option, Understanding/Release/Authorization of Plan Information
+        </div>
+        <div><label for="firstName" class="control-label">Plan:{{PLAName}}</label></div>
+        <div><label for="firstName" class="control-label">Plan year-2017</label></div>
+        <div class="container">
+            <p><center><strong>Please select a payment menthod to pay your monthly plan premium and/or late enrollment penaities</strong></center></p> <br>
+            <p>Humana has an automated option to help you pay your monthly premiums.The option is to have your monthly premium deducted from you Social or Railroad Retirement Board check.The other is that we can mail you a payment book.Would you like to set up an Social Security or Railroad Retirement Board Deduction?</p>
+            <form>
+                <div class="radio">
+                    <label><input type="radio" name="optradio">Social Security Check Deduction</label>
+                </div>
+                <div class="radio">
+                    <label><input type="radio" name="optradio">I want to pay Humana</label>
+                </div>
+                <div class="radio disabled">
+                    <label><input type="radio" name="optradio">Railroad Retirement Board Benifit Check Deduction</label>
+                </div>
+            </form>
+        </div>
+        <div class="container">
+            <p><center><strong>Understanding Plan/Release of Information/Authorization</strong></center></p>
+            <div class="form-group">
+                <label for="country" class="col-sm-8 control-label">Are you ready to complete the entrollment form for Humana Gold Plus HMO H213433-234</label>
+                <div class="col-sm-3">
+                    <select id="country" class="form-control">
+                        <option>Select One</option>
+                        <option>Select One</option>
+                        <option>Select One</option>
+                        <option>Select One</option>
+                        <option>Select One</option>
+                        <option>Select One</option>
+                        <option>Select One</option>
+                        <option>Select One</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <br>
+
+        <p>Section for fine print rules</p>
+        <br>
+
+
+
+        <div class="form-group">
+            <div class="col-md-12 col-sm-12 col-lg-12">
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-default">Previous</button>
+                </div>
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-primary">Save</button>
+                </div>
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-default">Next</button>
+                </div>
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-default">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
+

@@ -1,0 +1,333 @@
+﻿
+@{
+    ViewBag.Title = "PEDate";
+    Layout = "~/Views/Shared/_MedicareLayout.cshtml";
+}
+
+
+<div class="main-content" data-ng-app="MedicareEnrollmentModule" ng-controller="ProposedDateController">
+    <div class="container">
+        <div class="form-head">
+            Section 5: Proposed Effective Date
+        </div>
+        <div><label for="firstName" class="control-label">Plan:{{PLAName}}</label></div>
+        <div><label for="firstName" class="control-label">Plan year-2017</label></div>
+        <br>
+        <div class="container">
+            <h4 align="left"><b><span style="color: red;">*</span>Election Period Enrolling Under</b></h4> <br>
+            <div class="col-sm-12 col-md-12">
+                <p>Typically you may only enroll in a Medicare Advantage or Prescription Drug Plan during the Medicare Advantage and Prescription Drug Plan Annual Enrollment Period (AEP) between October 15th and December 7th of each year. However, there are exceptions that may allow you to enroll in a Medicare Advantage or Prescription Drug Plan outside of these election periods. </p><br>
+                <div class="address-box-1">
+
+                    <form id="sec5_form1" class="form-horizontal" role="form">
+                        <div class="form-group ">
+                            <div class="form-group ">
+                                <div class="col-sm-4">
+                                    <span class="col-sm-4">Today's Date:</span>
+                                    <span style="padding: 0;" class="col-sm-3" ng-bind="ddMMyyyy"></span>
+                                    <span style="padding: 0;" class="col-sm-5" ng-bind="HHmmss"></span>
+                                </div>
+
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="radio">
+                                    <label><input type="radio" ng-model="Enrollment" id="optradio" ng-va lue="'AEP'" name="optradio" disabled>AEP - Are you enrolling during your Medicare Advantage and Prescription Drug Plan Annual Enrollment Period?  <span data-toggle="modal" data-target="#h11"><i class="fa fa-question-circle" aria-hidden="true"></i></span></label>
+                                    <div class="modal fade" id="h11" role="dialog">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-body">
+                                                    <div class="modal-body">
+                                                        <p>AEP- Annual Enrollment Period</p>
+                                                        <p>Available: Oct 15 - Dec 07</p>
+                                                        <p>Usage: Only 1 AEP election may be used per year. </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="radio">
+                                    <label><input type="radio" ng-model="Enrollment" id="optradio1" ng-value="'IEP'" name="optradio">IEP - Are you in your initial enrollment period for a PDP or MAPD?  <span data-toggle="modal" data-target="#h12"><i class="fa fa-question-circle" aria-hidden="true"></i></span></label>
+                                    <div class="modal fade" id="h12" role="dialog">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-body">
+                                                    <p>IEP - Initial Election Period</p>
+                                                    <p>Availabe: For PDP or MAPD - Three months before, the month of, and three months after becoming eligible for Medicare.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="radio disabled">
+                                    <label><input type="radio" name="optradio" ng-model="Enrollment" id="optradio2" ng-value="'ICEP'" disabled>ICEP - Are you in your initial enrollment period for a MA-only or delayed Part B for MA or MAPD?  <span data-toggle="modal" data-target="#h13"><i class="fa fa-question-circle" aria-hidden="true"></i></span></label>
+                                    <div class="modal fade" id="h13" role="dialog">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-body">
+                                                    <p>ICEP- Initial Coverage Enrollment Period</p>
+                                                    <p>
+                                                        Available:
+                                                        For MA-only - Three months before, the month of, and three months after becoming eligible for Medicare.
+                                                        For delayed Part B for MA or MAPD - During the three months prior to the Part B effective date.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="radio">
+                                    <label><input type="radio" ng-model="Enrollment" ng-value="'OEPI'" id="optradio3" name="optradio">OEPI - Are you institutionalized?  <span data-toggle="modal" data-target="#h14"><i class="fa fa-question-circle" aria-hidden="true"></i></span></label>
+                                    <div class="modal fade" id="h14" role="dialog">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-body">
+                                                    <p>OEPI- Institutionalized</p>
+                                                    <p>Available: Can be used all year</p>
+                                                    <p>Usage:Starts the month a beneficiary is institutionalized and ends 2 months after the beneficiary moves out of an institution. </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label><input type="radio" ng-model="Enrollment" ng-value="'SEP'" id="optradio4" name="optradio">SEP - Are you in Special Election Period? If so, please indicate why?  <span data-toggle="modal" data-target="#h15"><i class="fa fa-question-circle" aria-hidden="true"></i></span></label>
+                                    <div class="modal fade" id="h15" role="dialog">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-body">
+                                                    <p>Usage: Applies to:</p>
+                                                    <table border="1">
+                                                        <tr>
+                                                            <td>
+                                                                If
+                                                            </td>
+                                                            <td>
+                                                                Then
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                Dual Eligibles
+                                                            </td>
+                                                            <td>
+                                                                SEP available.  This SEP is for individuals who are entitled to Medicare A & B and receive any type of assistance from Medicaid, including those eligible for Medicare Savings Programs, (QMB-only, SLMB-only, and QI).  Unlimited SEP’s as long as they receive Medicaid benefits.When no longer eligible for Medicaid, they have a 3-month period after they lose coverage to make an election.
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                Low Income Subsidy
+                                                            </td>
+                                                            <td>
+                                                                The SEP begins with the effective date of the LIS and ends once used or December 31st of the same year.
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                Loss or reduction (1) of creditable coverage
+                                                            </td>
+                                                            <td>
+                                                                SEP available. Can enroll within 60 days from loss of coverage or the date the individual received notice, whichever is later.
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                Permanent Move out of service area
+                                                            </td>
+                                                            <td>
+                                                                SEP available.  Can apply the month prior to the permanent move and up to 2 months after the move.   May choose an effective date of up to 3 months after the month in which the enrollment form is received but may not be earlier than the date of permanent move.
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                Contract Violations
+                                                            </td>
+                                                            <td>
+                                                                SEP available.
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                Hurricane Katrina
+                                                            </td>
+                                                            <td>
+                                                                SEP available – see zip code handout – unlimited SEP available until December 31st, 2006.
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                Employer Group Health Plan
+                                                            </td>
+                                                            <td>
+                                                                SEP available when the Group allows the individual to make changes in their health coverage choices, such as during the employers annual “open season” or due to “life changes”, e.g.., changes in marital status, for the newly employed etc. A prospect that currently has a Humana Group plan should always speak to our Group reps prior to changing coverage and those prospects who have other carriers group plans, should check with their plan representatives before changing plans as there are permanent ramifications for leaving group plans.
+                                                            </td>
+                                                        </tr>
+
+
+                                                    </table>
+                                                    <p>1. Reduction of benefits to the point that the coverage is no longer creditable</p>
+                                                    <p>2. Institution is a skilled nursing facility, nursing facility, intermediate care facility for the mentally retarded, psychiatric hospital, rehabilitation hospital or long term care hospital (assisted living and residential homes are NOT included). </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="checkbox col-sm-2">
+                                    <label>
+                                        <input type="checkbox" name="">Select SEP
+                                    </label>
+                                </div>
+                                <div class="col-sm-10">
+                                    <select class="form-control" name="sep" style="padding-left: 0;position: relative;right: 60px;" ng-model="SelectSEP">
+                                        <option value="CHR">CHR-One-time SEP for Iitial Enrollment into Chronic Care SNP plan OR individuals who are found after enrollment not to have the qualifying condition necessary to enroll in a chronic Care SNP will have an SEP to enroll in a different MA-PO plan with accompanying Part D</option>
+                                        <option value="CRE">CRE-SEP for individuals who are not adequately infromaed a loss of creditable coverage or never had creditable coverage</option>
+                                        <option value="ERR">ERR-SEP for individuals whose entrollment in a Part D plan is erroneous due to an action, inaction or error by a federal employee.Note:This SEP must be approved by CMS and the memeber will be required to submit proof of approval </option>
+                                        <option value="ESR">ESR-SEP for individuals with ESRD whose entitiement determination was made retoractively</option>
+                                        <option value="LEC">LEC-I am either losing coverage. I had form an employer or union or leaving employer or union coverage.</option>
+                                        <option value="LIS">LIS- I recevie extra help paying for Medicare precription drug coverage</option>
+                                        <option value="LLS">LLS-I am no longer eligible for extra help paying for my Medicare prescrition drugs</option>
+                                        <option value="LOC">LOC-SEP for individuals who involuntarily lose creditable prescrition durg coverage(as good as Medicare's)</option>
+                                        <option value="MDE">MDE-I have both Medicare and Medicaid or my state helps pay for my Medicare premiums or lost this eligibility within the last two months </option>
+                                        <option value="MOV">MOV-I recently moved outside of the service ares for my current planor, I recently returned to the United States after living permanently moved and this plan is a new option for me.</option>
+                                        <option value="OTH">OTH-None of the above statements apply to me;however, I feel I have a special circumstance which woukd allow me an exception to enroll.</option>
+                                        <option value="PAC">PAC-I recently left a PACE,[Program of All-inculsive Care for the Elderly] program.</option>
+                                        <option value="RET">RET-SEP for individuals whose Medicare entitiement determination was made retroactively</option>
+                                        <option value="SAN">SAN-SEP for individuals who disenroll in connection with a CMS sanction.Note: This SEP must be approved by CMS and the member will be required to submit proof of approval.</option>
+                                        <option value="SNP">SNP-SEP for individuals who lose Special Needs Status</option>
+                                        <option value="SPA">SPA-I currently belong to a pharmacy assistance program provided by my state also known as a Qualified State Pharmaceutical Assistance Plan(SPAP).Or lost SPAP eligiblity</option>
+                                        <option value="VIO">VIO-SEP for Contract Violations Note:This SEP must be approved by CMS and the member will be required to sumbit proof of approval</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group required">
+                            <label for="dateofbirth" Month class="col-sm-4 control-label" style="text-align:left !important">Select Proposed Effective Date:</label>
+                            <div class="col-sm-6" style="right: 10%; padding-left: 0px; position: relative;">
+                                <div class="col-sm-3">
+                                    <input name="date1" type="number" ng-model="Month" onkeypress="return isNumberKey(event);" id="lastName" placeholder="MM" class="form-control" maxlength="2">
+                                </div>
+                                <div class="col-sm-3">
+                                    <input name="date2" type="number" ng-model="Date" onkeypress="return isNumberKey(event);" id="lastName" placeholder="DD" class="form-control" maxlength="2">
+                                </div>
+                                <div class="col-sm-3">
+                                    <input name="date3" type="number" id="lastName" onkeypress="return isNumberKey(event);" ng-model="Year" placeholder="YYYY" class="form-control" maxlength="4">
+                                </div>
+
+
+                            </div>
+                            <div class="col-sm-2"></div>
+                        </div>
+                        <div style="margin: 10px 0"><br /><br /></div>
+                        <div class="col-sm-12">
+                            <div class="form-group required">
+                                <label for="country" class="control-label col-sm-2" style="text-align:left !important; padding-left:3px !important">Chronic:</label>
+
+                                <div class="col-sm-4">
+
+                                    <div class="radio-toolbar" ng-init="Chronic=0">
+                                        <input type="radio" ng-model="Chronic" ng-value="1" id="radio1" name="radios" value="true">
+                                        <label for="radio1">Yes</label>
+
+                                        <input type="radio" ng-model="Chronic" ng-value="0" id="radio2" name="radios" value="false">
+                                        <label for="radio2">No</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="form-group">
+            <div class="col-md-12 col-sm-12 col-lg-12 submiTbtn">
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-8" style="text-align: center;">
+                    <a href="~/Enrollment/AddContactInfo" class="btn btn-default">Previous</a>
+                    <button form="sec5_form1" id="btnnext" ng-click="InsertProposedDateInfo('Next')" class="btn btn-default">Next & Save</button>
+                    <button type="button" class="btn btn-primary" ng-click="InsertProposedDateInfo('Save')">Save</button>
+                </div>
+                <div class="col-md-2">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script src="~/Scripts/Scripts/CommonModule.js"></script>
+<script src="~/Scripts/Scripts/ProposedDate/ProposedDateControllerV2.js"></script>
+<script src="~/Scripts/Scripts/ProposedDate/ProposedDateServiceV1.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#sec5_form1').bootstrapValidator({
+            // To use feedback icons, ensure that you use Bootstrap v3.1.0 or later
+            feedbackIcons: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            fields: {
+                date1: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Please Enter Month'
+                        },
+                    }
+                },
+                date2: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Please Enter Date'
+                        },
+                    }
+                },
+                date3: {
+                    validators: {
+                        stringLength: {
+                            min: 4,
+                            message: 'Enter Valid Number'
+                        },
+                        notEmpty: {
+                            message: 'Please Enter Year'
+                        },
+                    }
+                },
+            }
+        })
+            .on('success.form.bv', function (e) {
+                $('#success_message').slideDown({ opacity: "show" }, "slow") // Do something ...
+                $('#contact_form').data('bootstrapValidator').resetForm();
+
+                // Prevent form submission
+                e.preventDefault();
+
+                // Get the form instance
+                var $form = $(e.target);
+
+                // Get the BootstrapValidator instance
+                var bv = $form.data('bootstrapValidator');
+
+                // Use Ajax to submit form data
+                $.post($form.attr('action'), $form.serialize(), function (result) {
+                    console.log(result);
+                }, 'json');
+            });
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $("#btnnext").click(function () {
+            $('#sec5_form1').bootstrapValidator('validate');
+        });
+        ValidateIt();
+    });
+
+</script>
